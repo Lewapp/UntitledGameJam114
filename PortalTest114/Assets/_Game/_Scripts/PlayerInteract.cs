@@ -11,6 +11,7 @@ public class PlayerInteract : MonoBehaviour
     [Header("Interaction Settings")]
     public float interactionDistance = 3f; // Distance within which the player can interact with objects
     public Transform holdPoint; // Point where the object will be held when interacted with
+    public Material heldMaterial; // Material to apply to the held object 
     #endregion
 
     #region Private Variables
@@ -48,6 +49,13 @@ public class PlayerInteract : MonoBehaviour
         Debug.DrawRay(transform.position, _direction * interactionDistance, Color.red, 0.1f);
         #endif
 
+        if (selectedObject)
+        {
+            // Call the 'DeSelect' method to remove its selected state
+            selectedObject.DeSelect();
+            selectedObject = null;
+        }
+
         // Perform a raycast forward from the player's position within the set interaction distance
         // Only detect objects on the specified layerMask
         if (Physics.Raycast(transform.position, _direction, out RaycastHit _hit, interactionDistance, layerMask))
@@ -62,14 +70,20 @@ public class PlayerInteract : MonoBehaviour
             // Call the 'Select' method to visually mark the object as selected
             selectedObject.Select();
         }
-        else if (selectedObject) // If nothing was hit, but we previously had a selected object
-        {
-            // Call the 'DeSelect' method to remove its selected state
-            selectedObject.DeSelect();
+    }
 
-            // Clear the stored reference since nothing is currently selected
-            selectedObject = null;
-        }
+    /// <summary>
+    /// Applies the currently held material to the specified game object to help see through the object.
+    /// </summary>
+    private void ApplyMaterial(GameObject objectToApply)
+    {
+        Renderer selectedRenderer = objectToApply?.GetComponent<Renderer>();
+
+        // If the object does not have a Renderer component, or if the held material is not set, do nothing
+        if (!selectedRenderer)
+            return;
+
+        selectedRenderer.material = heldMaterial; // Apply the held material to the selected object
     }
     #endregion
 
@@ -99,6 +113,7 @@ public class PlayerInteract : MonoBehaviour
             });
 
             heldObject = selectedObject.gameObject; // Store the currently held object
+            ApplyMaterial(heldObject);
             return;
         }
 
@@ -107,6 +122,12 @@ public class PlayerInteract : MonoBehaviour
             interactor = gameObject, // Set the interactor to this player GameObject
             parent = null // Clear the parent to release the object
         });
+
+        Selected selected = heldObject.GetComponent<Selected>();
+        if (selected)
+        {
+            selected.DeSelect(); // Deselect the held object
+        }
 
         heldObject = null; // Clear the reference to the held object
     }

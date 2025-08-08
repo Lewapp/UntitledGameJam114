@@ -36,6 +36,7 @@ public class PickUp : MonoBehaviour, IInteractable
         rb.isKinematic = true; // Disable physics when picked up
         transform.SetParent(data.parent); // Set the parent to the specified hold point
         transform.localPosition = Vector3.zero; // Reset position relative to the parent
+        transform.localEulerAngles = Vector3.zero; // Reset rotation relative to the parent
         SetTeleportableState(false);
     }
 
