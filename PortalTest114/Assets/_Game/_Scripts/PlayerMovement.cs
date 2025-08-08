@@ -8,6 +8,10 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class PlayerMovement : MonoBehaviour, ITeleportable
 {
+    #region Interface Variables
+    public bool canTeleport { get; set; }
+    #endregion
+
     #region Public Variables
     [Header("Movement Settings")]
     public float moveSpeed = 5f;       // Player movement speed
@@ -36,6 +40,8 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     #region Unity Events
     private void Start()
     {
+        canTeleport = true; // Allow teleportation by default
+
         // Get the CharacterController from the GameObject
         characterController = GetComponent<CharacterController>();
         if (characterController == null)
@@ -127,6 +133,9 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     /// </summary>
     public void Teleport(Vector3 position, Quaternion rotation)
     {
+        if (!canTeleport)
+            return; // If teleportation is not allowed, exit the method
+
         characterController.enabled = false;
         transform.position = position; // Set the player's position to the teleport location
         transform.rotation = rotation; // Set the player's rotation to the teleport rotation

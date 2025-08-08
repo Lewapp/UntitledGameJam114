@@ -30,7 +30,7 @@ public class PortalTeleport : MonoBehaviour
         currentCooldown = teleportCooldown; // Initialise cooldown to allow immediate teleportation
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         // If cooldown is still active, do not teleport
         if (currentCooldown < teleportCooldown)
