@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 /// Uses the Input System for player input.
 /// Should be attached to the main camera GameObject.
 /// </summary>
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, ITeleportable
 {
     #region Public Variables
     [Header("Movement Settings")]
@@ -121,6 +121,19 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
+    #region Interfaces
+    /// <summary>
+    /// Teleports the player to the specified position and rotation.
+    /// </summary>
+    public void Teleport(Vector3 position, Quaternion rotation)
+    {
+        characterController.enabled = false;
+        transform.position = position; // Set the player's position to the teleport location
+        transform.rotation = rotation; // Set the player's rotation to the teleport rotation
+        characterController.enabled = true;
+    }
+    #endregion
+
     #region Input Actions
     /// <summary>
     /// Reads movement input from the Input System.
@@ -138,10 +151,10 @@ public class PlayerMovement : MonoBehaviour
         if (characterController == null)
             return;
 
-        // Only jump when input is performed (button pressed) and player is grounded
+        // Only jump when input is performed and player is grounded
         if (context.performed && characterController.isGrounded)
         {
-            // Calculate jump velocity using physics formula: v = sqrt(2 * jumpHeight * gravity)
+            // Calculate jump velocity 
             velocity.y = Mathf.Sqrt(jumpHeight * 2f * gravity);
         }
     }
