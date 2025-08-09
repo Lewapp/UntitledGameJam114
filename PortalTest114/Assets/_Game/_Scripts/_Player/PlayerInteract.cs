@@ -121,7 +121,31 @@ public class PlayerInteract : MonoBehaviour
             return;
         }
 
-        heldObject.GetComponent<IPickUpable>()?.PickUp(null);
+        IPickUpable pickUpable =  heldObject.GetComponent<IPickUpable>();
+        pickUpable.dropMode = PickUpMode.Drop; // Set the drop mode to Drop
+        pickUpable.PickUp(null); // Call the PickUp method with null to release the held object
+
+        Selected _selected = heldObject.GetComponent<Selected>();
+        if (_selected)
+        {
+            _selected.DeSelect(); // Deselect the held object
+        }
+
+        heldObject = null; // Clear the reference to the held object
+    }
+
+    public void SecondaryInteract(InputAction.CallbackContext context)
+    {
+        // Check if the secondary interaction input was performed and if there is a held object
+        if (!context.performed || !heldObject)
+            return;
+
+        IPickUpable pickUpable = heldObject.GetComponent<IPickUpable>();
+        if (pickUpable == null)
+            return;
+
+        pickUpable.dropMode = PickUpMode.Throw; // Set the drop mode to Throw
+        pickUpable.PickUp(null); // Call the PickUp method with null to release the held object
 
         Selected _selected = heldObject.GetComponent<Selected>();
         if (_selected)

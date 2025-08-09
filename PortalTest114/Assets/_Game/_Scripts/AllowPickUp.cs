@@ -6,6 +6,10 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class AllowPickUp : MonoBehaviour, IPickUpable
 {
+    #region Interface Variables
+    public PickUpMode dropMode { get; set; }
+    #endregion
+
     #region Private Variables
     private Rigidbody rb; // Reference to the Rigidbody component for physics interactions
     private BoxCollider boxCollider; // Reference to the BoxCollider component for interaction detection
@@ -14,6 +18,8 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
     #region Unity Events
     private void Start()
     {
+        dropMode = PickUpMode.Drop; // Initialise the drop mode to drop
+
         // Ensure the Rigidbody component is present and set to non-kinematic by default
         rb = GetComponent<Rigidbody>();
         // Ensure the BoxCollider component is present
@@ -33,6 +39,18 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
 
         teleportable.canTeleport = enable; // Set the teleportable state
     }
+
+    private void ApplyFowardForce()
+    {
+        if (dropMode != PickUpMode.Throw)
+            return; // If the drop mode is not Throw, do not apply force
+
+        // Apply a forward force to the object if it has a Rigidbody component
+        if (rb != null)
+        {
+            rb.AddForce(transform.forward * 10f, ForceMode.Impulse); // Adjust the force as needed
+        }
+    }
     #endregion
 
     #region Interfaces
@@ -49,6 +67,8 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
 
             transform.SetParent(null);
             SetTeleportableState(true);
+
+            ApplyFowardForce(); // Apply a forward force when the object is released
             return;
         }
 

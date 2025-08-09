@@ -4702,9 +4702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linkedPortal: {fileID: 1274459238}
-  teleportLocation: {x: 0, y: 0.69, z: 1.8268328}
+  teleportLocation: {x: 0, y: 1.5301367, z: 0}
   teleportRotation: {x: 0.0001957608, y: 0.014172394, z: 0.003483588, w: -0.9998935}
-  teleportCooldown: 3
+  teleportCooldown: 1
 --- !u!1 &1061243372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5613,9 +5613,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linkedPortal: {fileID: 973931796}
-  teleportLocation: {x: 0, y: 0.69, z: -1.11}
+  teleportLocation: {x: 0, y: 1.4870476, z: 0}
   teleportRotation: {x: -0.0034883155, y: -0.9997741, z: 0.00007324492, w: 0.020967413}
-  teleportCooldown: 3
+  teleportCooldown: 1
 --- !u!1 &1309015299
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using static UnityEngine.EventSystems.EventTrigger;
+
 
 
 #if UNITY_EDITOR
@@ -105,6 +107,11 @@ public class TeleportHandle : Editor
             portal.teleportRotation = newRot; // Update teleport rotation
             EditorUtility.SetDirty(portal); // Mark the portal as dirty to ensure changes are saved
         }
+
+        // Set colour for connected objects to green
+        Handles.color = Color.green;
+        // Draw a line from the pressure plate to each connected object
+        Handles.DrawDottedLine(portal.transform.position, portal.linkedPortal.transform.position, 5f);
     }
 }
 #endif
