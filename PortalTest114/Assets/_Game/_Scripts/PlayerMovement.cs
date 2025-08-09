@@ -115,15 +115,15 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
             return;
 
         // Determine sensitivity based on input type
-        float _sensitivity = usingController ? controllerSensitivity : mouseSensitivity; // Use controller sensitivity if using a gamepad
+        float _sensitivity = usingController ? controllerSensitivity * Time.deltaTime: mouseSensitivity;
 
-        // Vertical look
-        xRotation -= lookInput.y * _sensitivity * Time.deltaTime;
+        // Horizontal look (rotate player body)
+        transform.Rotate(Vector3.up * lookInput.x * _sensitivity);
+
+        // Vertical look (rotate camera)
+        xRotation -= lookInput.y * _sensitivity;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-
-        // Horizontal look
-        transform.Rotate(Vector3.up * lookInput.x * _sensitivity * Time.deltaTime);
     }
     #endregion
 
