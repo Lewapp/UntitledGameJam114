@@ -51,7 +51,7 @@ public class ObjectSpawner : MonoBehaviour, IInteractable
             return;
 
         DeSpawnSpawned(); // De-spawn any previously spawned object
-        spawned.Add(Instantiate(spawnObject, transform.position + spawnPoint, Quaternion.identity)); // Spawn the new object at the specified spawn point
+        spawned.Add(Instantiate(spawnObject, transform.TransformPoint(spawnPoint), Quaternion.identity)); // Spawn the new object at the specified spawn point
     }
     #endregion
 }
@@ -65,7 +65,7 @@ public class ObjectSpawnerEditor : Editor
     {
         var _spawner = (ObjectSpawner)target;
 
-        Vector3 _position = _spawner.transform.position + _spawner.spawnPoint;
+        Vector3 _position = _spawner.transform.TransformPoint(_spawner.spawnPoint);
 
         Handles.color = Color.yellow;
         Handles.DrawWireCube(_position, Vector3.one * 0.5f);
@@ -75,7 +75,7 @@ public class ObjectSpawnerEditor : Editor
         if (EditorGUI.EndChangeCheck())
         {
             Undo.RecordObject(_spawner, "Move Spawn Point");
-            _spawner.spawnPoint = _newSpawnPoint - _spawner.transform.position; 
+            _spawner.spawnPoint = _spawner.transform.InverseTransformPoint(_newSpawnPoint);
             EditorUtility.SetDirty(_spawner);
         }
     }
