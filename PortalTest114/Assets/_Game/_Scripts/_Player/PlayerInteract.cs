@@ -88,6 +88,24 @@ public class PlayerInteract : MonoBehaviour
 
         _selectedRenderer.material = heldMaterial; // Apply the held material to the selected object
     }
+
+    public void DropHeldObject()
+    {
+        if (!heldObject)
+            return;
+
+        IPickUpable pickUpable = heldObject.GetComponent<IPickUpable>();
+        pickUpable.dropMode = PickUpMode.Drop; // Set the drop mode to Drop
+        pickUpable.PickUp(null); // Call the PickUp method with null to release the held object
+
+        Selected _selected = heldObject.GetComponent<Selected>();
+        if (_selected)
+        {
+            _selected.DeSelect(); // Deselect the held object
+        }
+
+        heldObject = null; // Clear the reference to the held object
+    }
     #endregion
 
     #region Input Actions
@@ -121,17 +139,7 @@ public class PlayerInteract : MonoBehaviour
             return;
         }
 
-        IPickUpable pickUpable =  heldObject.GetComponent<IPickUpable>();
-        pickUpable.dropMode = PickUpMode.Drop; // Set the drop mode to Drop
-        pickUpable.PickUp(null); // Call the PickUp method with null to release the held object
-
-        Selected _selected = heldObject.GetComponent<Selected>();
-        if (_selected)
-        {
-            _selected.DeSelect(); // Deselect the held object
-        }
-
-        heldObject = null; // Clear the reference to the held object
+        DropHeldObject(); // If an object is already held, drop it
     }
 
     public void SecondaryInteract(InputAction.CallbackContext context)

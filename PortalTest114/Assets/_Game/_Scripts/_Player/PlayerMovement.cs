@@ -131,14 +131,21 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     /// <summary>
     /// Teleports the player to the specified position and rotation.
     /// </summary>
-    public void Teleport(Vector3 position, Quaternion rotation)
+    public void Teleport(Vector3 position, Quaternion rotation, bool forceSolo)
     {
         if (!canTeleport)
             return; // If teleportation is not allowed, exit the method
 
+        // Drop any held object if forceSolo is true
+        if (forceSolo)
+        {
+            PlayerInteract playerInteract = GetComponent<PlayerInteract>();
+            playerInteract?.DropHeldObject(); 
+        }
+
         characterController.enabled = false;
         transform.position = position; // Set the player's position to the teleport location
-        transform.rotation = rotation; // Set the player's rotation to the teleport rotation
+        transform.rotation = Quaternion.Euler(0f, 0f, rotation.z); // Set the player's rotation to the teleport rotation
         characterController.enabled = true;
     }
     #endregion

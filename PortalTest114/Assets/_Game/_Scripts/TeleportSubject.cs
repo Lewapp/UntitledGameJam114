@@ -18,8 +18,8 @@ public class TeleportSubject : MonoBehaviour, ITeleportable
     }
     #endregion
 
-    #region Methods
-    public void Teleport(Vector3 position, Quaternion rotation)
+    #region Interfaces
+    public void Teleport(Vector3 position, Quaternion rotation, bool forceSolo)
     {
         if (!canTeleport) 
             return; // If teleportation is not allowed, exit the method

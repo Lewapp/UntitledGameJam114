@@ -17,48 +17,43 @@ public class PortalTeleport : MonoBehaviour
     #region Public Variables
     [Header("Portal Settings")]
     public PortalTeleport linkedPortal; // The portal this one is linked to
+    public LayerMask allowedEntryMask; // Layer mask to determine which objects can enter the portal
     public Vector3 teleportLocation; // The position offset for teleportation
     public Quaternion teleportRotation = Quaternion.identity; // The rotation offset for teleportation
-    public float teleportCooldown = 3f; // Cooldown time between teleports
+    public bool forceSolo = false; // If true, objects cannot bring other objects with it through the portal
     #endregion
 
     #region Private Variables
-    private float currentCooldown; // Tracks the current cooldown time
+    private GameObject expectingObject; // The object that is expected to enter the portal next, if any
     #endregion
 
     #region Unity Events
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        currentCooldown = teleportCooldown; // Initialise cooldown to allow immediate teleportation
-    }
+        if (!linkedPortal)
+            return;
 
-    private void OnTriggerStay(Collider other)
-    {
-        // If cooldown is still active, do not teleport
-        if (currentCooldown < teleportCooldown)
+        if (expectingObject)
+        {
+            expectingObject = null; // Reset expecting object if one is already set
+            return;
+        }    
+
+        // Check if the object is allowed to enter the portal based on its layer
+        if ((allowedEntryMask.value & (1 << other.gameObject.layer)) == 0)
             return;
 
         // Teleport to the linked portal's position plus its teleportLocation offset
-        other.GetComponent<ITeleportable>()?.Teleport(linkedPortal.transform.position + linkedPortal.teleportLocation, teleportRotation);
-
-        // Start cooldowns on both this portal and the linked portal to prevent immediate back-and-forth teleporting
-        StartCoroutine(linkedPortal.CoolDown());
-        StartCoroutine(CoolDown());
+        other.GetComponent<ITeleportable>()?.Teleport(linkedPortal.transform.position + linkedPortal.teleportLocation, teleportRotation, forceSolo);
+    
+        linkedPortal.SetExpectingObject(other.gameObject); // Set the linked portal to expect this object next
     }
     #endregion
 
     #region Methods
-    /// <summary>
-    /// Implements a cooldown timer that waits for a specified duration before completing.
-    /// </summary>
-    public IEnumerator CoolDown()
+    public void SetExpectingObject(GameObject newObject)
     {
-        currentCooldown = 0f; // Reset cooldown timer
-        while (currentCooldown < teleportCooldown)
-        {
-            currentCooldown += Time.deltaTime; // Increment cooldown by the time passed since last frame
-            yield return null; // Wait for the next frame
-        }
+        expectingObject = newObject; // Set the object that is expected to enter the portal next
     }
     #endregion
 
@@ -108,10 +103,13 @@ public class TeleportHandle : Editor
             EditorUtility.SetDirty(portal); // Mark the portal as dirty to ensure changes are saved
         }
 
-        // Set colour for connected objects to green
-        Handles.color = Color.green;
-        // Draw a line from the pressure plate to each connected object
-        Handles.DrawDottedLine(portal.transform.position, portal.linkedPortal.transform.position, 5f);
+        if (portal.linkedPortal)
+        {
+            // Set colour for connected objects to green
+            Handles.color = Color.green;
+            // Draw a line from the pressure plate to each connected object
+            Handles.DrawDottedLine(portal.transform.position, portal.linkedPortal.transform.position, 5f);
+        }
     }
 }
 #endif

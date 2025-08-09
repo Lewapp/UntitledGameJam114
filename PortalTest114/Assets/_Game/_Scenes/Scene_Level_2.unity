@@ -2417,14 +2417,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1142543563}
     - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
-      propertyPath: teleportLocation.x
-      value: 1.2438345
-      objectReference: {fileID: 0}
-    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
-      propertyPath: teleportLocation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: teleportRotation.w
       value: -0.7013083
       objectReference: {fileID: 0}
@@ -2722,14 +2714,6 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 1954246857}
-    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
-      propertyPath: teleportLocation.x
-      value: 1.2438345
-      objectReference: {fileID: 0}
-    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
-      propertyPath: teleportLocation.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: teleportRotation.w
       value: -0.7013083
