@@ -21,7 +21,7 @@ public class PlayerInteract : MonoBehaviour
     private GameObject heldObject; // Reference to the object currently being held (if any)
     #endregion
 
-    #region Unity Methods
+    #region Unity Events
     private void Start()
     {
         playerCamera = Camera.main; // Get the main camera in the scene

@@ -11,7 +11,7 @@ public class PickUp : MonoBehaviour, IInteractable
     private BoxCollider boxCollider; // Reference to the BoxCollider component for interaction detection
     #endregion
 
-    #region Unity Methods
+    #region Unity Events
     private void Start()
     {
         // Ensure the Rigidbody component is present and set to non-kinematic by default

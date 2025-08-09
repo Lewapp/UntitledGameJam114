@@ -16,7 +16,7 @@ public class Selected : MonoBehaviour
     private Material defaultMaterial; // Default material to revert to when not selected
     #endregion
 
-    #region Unity Methods
+    #region Unity Events
     private void Start()
     {
         objectRenderer = GetComponent<Renderer>();

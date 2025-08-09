@@ -11,7 +11,7 @@ public class TeleportSubject : MonoBehaviour, ITeleportable
     public bool canTeleport { get ; set; }
     #endregion
 
-    #region Unity Methods
+    #region Unity Events
     private void Start()
     {
         canTeleport = true; // Allow teleportation by default
