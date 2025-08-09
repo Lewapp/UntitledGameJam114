@@ -11580,6 +11580,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5190930286608615140, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: maxVelocity
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 7412155405219871166, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11638,6 +11642,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4884351834605910594, guid: dc1a02ea13fcc4a47942df4aebf0ca82, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884351834605910594, guid: dc1a02ea13fcc4a47942df4aebf0ca82, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884351834605910594, guid: dc1a02ea13fcc4a47942df4aebf0ca82, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4884351834605910594, guid: dc1a02ea13fcc4a47942df4aebf0ca82, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.3916248
       objectReference: {fileID: 0}
@@ -11680,6 +11696,10 @@ PrefabInstance:
     - target: {fileID: 6953455941589360650, guid: dc1a02ea13fcc4a47942df4aebf0ca82, type: 3}
       propertyPath: m_Name
       value: Cube_PickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456390421121988680, guid: dc1a02ea13fcc4a47942df4aebf0ca82, type: 3}
+      propertyPath: maxVelocity
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

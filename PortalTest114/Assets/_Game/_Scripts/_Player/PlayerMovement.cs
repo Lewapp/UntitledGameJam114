@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     public float moveSpeed = 5f;       // Player movement speed
     public float gravity = 9.81f;      // Gravity strength
     public float jumpHeight = 2f;      // Height of player's jump
+    public float maxVelocity = 10f; // Maximum velocity cap for movement
 
     [Header("Look Settings")]
     public float mouseSensitivity = 5f; // Sensitivity for mouse/camera look
@@ -86,6 +87,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
 
         // Apply gravity over time
         velocity.y -= gravity * Time.deltaTime;
+        velocity.y = Mathf.Clamp(velocity.y, -maxVelocity, maxVelocity); // Cap downward velocity
 
         // Move the character based on current vertical velocity
         characterController.Move(velocity * Time.deltaTime);

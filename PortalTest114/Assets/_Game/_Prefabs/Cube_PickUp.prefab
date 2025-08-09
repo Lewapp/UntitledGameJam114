@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6116766935369933106}
   - component: {fileID: 3387813165621207253}
   - component: {fileID: -3624105380085141198}
+  - component: {fileID: 8456390421121988680}
   m_Layer: 6
   m_Name: Cube_PickUp
   m_TagString: Untagged
@@ -193,3 +194,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: eb597d3a25be7344a95d883ef63179bd, type: 2}
   - {fileID: 2100000, guid: 87fe6a8a43822444f95771e7b44aaf56, type: 2}
   - {fileID: 2100000, guid: 8d72a64a2153b5a4d9a8b163d42d3c38, type: 2}
+--- !u!114 &8456390421121988680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953455941589360650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36545fcaa2b76d46990710af2773f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 3265552531305659347}
+  maxVelocity: 40
