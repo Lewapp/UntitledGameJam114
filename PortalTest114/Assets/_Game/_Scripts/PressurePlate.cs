@@ -72,6 +72,7 @@ public class PressurePlate : MonoBehaviour
     #region Editor Code
 #if UNITY_EDITOR
     [CustomEditor(typeof(PressurePlate))]
+    [CanEditMultipleObjects]
     public class PressurePlateEditor : Editor
     {
         public void OnSceneGUI()
@@ -92,6 +93,16 @@ public class PressurePlate : MonoBehaviour
 
             Handles.color = Color.yellow; // Set handle color to yellow
             Handles.DrawWireCube(centre, newSize); // Draw a wireframe cube to visualize the trigger area
+
+            foreach (GameObject obj in pressurePlate.connectedObjects)
+            {
+                if (obj == null) continue; // Skip null objects
+
+                // Set colour for connected objects to green
+                Handles.color = Color.green; 
+                // Draw a line from the pressure plate to each connected object
+                Handles.DrawDottedLine(pressurePlate.transform.position, obj.transform.position, 5f);
+            }
         }
     }
 #endif
