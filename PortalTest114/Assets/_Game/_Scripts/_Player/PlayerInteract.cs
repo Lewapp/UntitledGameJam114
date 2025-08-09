@@ -35,6 +35,9 @@ public class PlayerInteract : MonoBehaviour
     #endregion
 
     #region Methods
+    /// <summary>
+    /// Checks for selectable objects in front of the player and updates the selected object state.
+    /// </summary>
     private void CheckForSelectableObjects()
     {
         // If the player is already holding an object, skip checking for other selectable objects
@@ -77,13 +80,13 @@ public class PlayerInteract : MonoBehaviour
     /// </summary>
     private void ApplyMaterial(GameObject objectToApply)
     {
-        Renderer selectedRenderer = objectToApply?.GetComponent<Renderer>();
+        Renderer _selectedRenderer = objectToApply?.GetComponent<Renderer>();
 
         // If the object does not have a Renderer component, or if the held material is not set, do nothing
-        if (!selectedRenderer)
+        if (!_selectedRenderer)
             return;
 
-        selectedRenderer.material = heldMaterial; // Apply the held material to the selected object
+        _selectedRenderer.material = heldMaterial; // Apply the held material to the selected object
     }
     #endregion
 
@@ -101,32 +104,29 @@ public class PlayerInteract : MonoBehaviour
 
         if (!heldObject)
         {
-            IInteractable interactable = selectedObject.GetComponent<IInteractable>();
+            IInteractable _interactable = selectedObject.GetComponent<IInteractable>();
             selectedObject.DeSelect(); // Deselect the object after interaction
-            if (interactable == null)
+            if (_interactable != null)
+                _interactable.Interact(new InteractableData{ interactor = gameObject }); // Pass the player GameObject as the interactor
+
+            // If the selected object is interactable, call its PickUp method
+            IPickUpable _pickUpable = selectedObject.GetComponent<IPickUpable>();
+            if (_pickUpable == null)
                 return;
 
-            interactable.Interact(new InteractableData
-            {
-                interactor = gameObject, // Set the interactor to this player GameObject
-                parent = holdPoint // Set the parent to the hold point
-            });
+            _pickUpable.PickUp(holdPoint);
 
             heldObject = selectedObject.gameObject; // Store the currently held object
             ApplyMaterial(heldObject);
             return;
         }
 
-        heldObject.GetComponent<IInteractable>()?.Interact(new InteractableData
-        {
-            interactor = gameObject, // Set the interactor to this player GameObject
-            parent = null // Clear the parent to release the object
-        });
+        heldObject.GetComponent<IPickUpable>()?.PickUp(null);
 
-        Selected selected = heldObject.GetComponent<Selected>();
-        if (selected)
+        Selected _selected = heldObject.GetComponent<Selected>();
+        if (_selected)
         {
-            selected.DeSelect(); // Deselect the held object
+            _selected.DeSelect(); // Deselect the held object
         }
 
         heldObject = null; // Clear the reference to the held object
