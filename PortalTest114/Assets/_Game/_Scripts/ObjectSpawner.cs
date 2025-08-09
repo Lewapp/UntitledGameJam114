@@ -63,15 +63,20 @@ public class ObjectSpawnerEditor : Editor
 {
     private void OnSceneGUI()
     {
+        // Ensure the target is of type ObjectSpawner
         var _spawner = (ObjectSpawner)target;
 
         Vector3 _position = _spawner.transform.TransformPoint(_spawner.spawnPoint);
 
+        // Draw a wire cube at the spawn point in the scene view
         Handles.color = Color.yellow;
         Handles.DrawWireCube(_position, Vector3.one * 0.5f);
 
         EditorGUI.BeginChangeCheck();
+        // Allow the user to move the spawn point using a position handle
         Vector3 _newSpawnPoint = Handles.PositionHandle(_position, Quaternion.identity);
+
+        // If the position has changed, update the spawn point in the spawner
         if (EditorGUI.EndChangeCheck())
         {
             Undo.RecordObject(_spawner, "Move Spawn Point");
