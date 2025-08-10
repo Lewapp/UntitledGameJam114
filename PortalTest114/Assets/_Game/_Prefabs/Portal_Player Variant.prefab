@@ -88,6 +88,22 @@ PrefabInstance:
       propertyPath: allowedEntryMask.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 1869622110689665870, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417200306946482419, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860717299408608134, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789519402709811058, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

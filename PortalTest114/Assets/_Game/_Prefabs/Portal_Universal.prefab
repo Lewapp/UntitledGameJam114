@@ -72,8 +72,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   teleportLocation: {x: 0, y: 1.3939908, z: 0}
-  teleportRotation: {x: 0, y: 0.7057331, z: 0, w: 0.70847785}
-  teleportCooldown: 1
+  teleportRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
+  forceSolo: 0
 --- !u!1 &1325353346113996646
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 7269593311248687912}
   - component: {fileID: 670720015785173661}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: PortalView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
