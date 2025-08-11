@@ -80,13 +80,10 @@ public class PlayerInteract : MonoBehaviour
     /// </summary>
     private void ApplyMaterial(GameObject objectToApply)
     {
-        Renderer _selectedRenderer = objectToApply?.GetComponent<Renderer>();
-
-        // If the object does not have a Renderer component, or if the held material is not set, do nothing
-        if (!_selectedRenderer)
-            return;
-
-        _selectedRenderer.material = heldMaterial; // Apply the held material to the selected object
+        foreach (Renderer childRenderer in objectToApply.GetComponentsInChildren<Renderer>())
+        {
+            childRenderer.material = heldMaterial; // Apply the held material to the selected object
+        }
     }
 
     public void DropHeldObject()

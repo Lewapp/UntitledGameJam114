@@ -9,17 +9,16 @@ public class Selected : MonoBehaviour
     #region Public Variables
     [Header("Selection Settings")]
     public Material selectedMaterial; // Material to apply when selected
+    public Renderer objectRenderer; // Renderer component of the object
     #endregion
 
     #region Private Variables
-    private Renderer objectRenderer; // Renderer component of the object
     private Material defaultMaterial; // Default material to revert to when not selected
     #endregion
 
     #region Unity Events
     private void Start()
     {
-        objectRenderer = GetComponent<Renderer>();
         defaultMaterial = objectRenderer?.material; // Store the default material
     }
     #endregion
