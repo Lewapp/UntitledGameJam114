@@ -44,7 +44,7 @@ public class PortalTeleport : MonoBehaviour
             return;
 
         // Teleport to the linked portal's position plus its teleportLocation offset
-        other.GetComponent<ITeleportable>()?.Teleport(linkedPortal.transform.position + linkedPortal.teleportLocation, teleportRotation, forceSolo);
+        other.GetComponent<ITeleportable>()?.Teleport(linkedPortal.transform.position + linkedPortal.teleportLocation, linkedPortal.teleportRotation, forceSolo);
     
         linkedPortal.SetExpectingObject(other.gameObject); // Set the linked portal to expect this object next
     }

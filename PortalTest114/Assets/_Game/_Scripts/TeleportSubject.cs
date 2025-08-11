@@ -11,20 +11,38 @@ public class TeleportSubject : MonoBehaviour, ITeleportable
     public bool canTeleport { get ; set; }
     #endregion
 
+    #region Public Variables
+    public Rigidbody rb; // Reference to the Rigidbody component for physics interactions
+    #endregion
+
     #region Unity Events
     private void Start()
     {
         canTeleport = true; // Allow teleportation by default
+        rb = GetComponent<Rigidbody>(); // Get the Rigidbody component if it exists
     }
     #endregion
 
     #region Interfaces
     public void Teleport(Vector3 position, Quaternion rotation, bool forceSolo)
     {
-        if (!canTeleport) 
-            return; // If teleportation is not allowed, exit the method
-        transform.position = position; // Set the player's position to the teleport location
-        transform.rotation = rotation; // Set the player's rotation to the teleport rotation
+        if (!canTeleport)
+            return;
+
+        transform.position = position;
+
+        if (!rb)
+            return;
+
+        Vector3 savedVelocity = rb.linearVelocity;
+
+        // Get relative rotation between entry and exit portal
+        Quaternion relativeRotation = rotation * Quaternion.Inverse(transform.rotation);
+
+        // Rotate velocity by this relative rotation
+        Vector3 newVelocity = relativeRotation * savedVelocity;
+
+        rb.linearVelocity = newVelocity;
     }
     #endregion
 }

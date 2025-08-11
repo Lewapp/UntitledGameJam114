@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 229168971209904106}
   - component: {fileID: 4176843147125110573}
   - component: {fileID: 1218603116918143420}
+  - component: {fileID: 8707112728081915674}
   m_Layer: 0
   m_Name: Portal_Universal
   m_TagString: Untagged
@@ -197,6 +198,21 @@ MonoBehaviour:
   teleportLocation: {x: 0, y: 1.3939908, z: 0}
   teleportRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   forceSolo: 0
+--- !u!114 &8707112728081915674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505963914772958835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef26907256040b4fbb83217ae8aab37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portalCamera: {fileID: 4431416133180006989}
+  targetPortalView: {fileID: 0}
+  portalColor: {r: 0.7110495, g: 0.4669811, b: 1, a: 0.23921569}
 --- !u!1 &1325353346113996646
 GameObject:
   m_ObjectHideFlags: 0
@@ -9313,7 +9329,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7151
+  m_VersionIndex: 7154
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
