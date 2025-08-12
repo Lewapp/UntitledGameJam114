@@ -1,21 +1,24 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Provides functionality for handling main menu button interactions.
 /// </summary>
-
 public class MainMenuButtons : MonoBehaviour
 {
-    #region Public Variables
+    #region Insoector Variables
     [Header("Main Menu Settings")]
-    public GameObject startDoor;
-    public UIFade fader;
+    [SerializeField] private GameObject startDoor; // Reference to the door GameObject that will be interacted when starting game
+    [SerializeField] private UIFade fader; // Reference to the UIFade component for fade effects
+    [SerializeField] private TextMeshProUGUI displayedLevelSelection; // Text element to display the current level selection
     #endregion
 
-    #region Public Variables
-    private bool isStarting = false;
+    #region Private Variables
+    private bool isStarting = false; // Flag to indicate if the game is in the starting state
     private float startDelay = 3f; // Delay before starting the game
+    private string levelToLoad = "Scene_Level_1"; // Default level to load
+    private int currentLevelIndex = 0; // Index of the current level in the selection
     #endregion
 
     #region Unity Events
@@ -44,7 +47,7 @@ public class MainMenuButtons : MonoBehaviour
         if (startDelay <= 0f)
         {
             isStarting = false;
-            SceneManager.LoadScene("Scene_Level_1");
+            SceneManager.LoadScene(levelToLoad);
         }
     }
     #endregion
@@ -54,6 +57,9 @@ public class MainMenuButtons : MonoBehaviour
     /// Initiates the game start sequence, interacting with the starting door to drop the box, if available, and triggering the fade effect.
     public void StartGame()
     {
+        if (isStarting)
+            return;
+
         // Check if the start door is assigned
         if (startDoor)
         {
@@ -73,6 +79,36 @@ public class MainMenuButtons : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    /// <summary>
+    /// Advances the current level selection to the next level in the sequence.
+    /// </summary>
+    public void ChangeLevelSelect()
+    {
+        if (isStarting)
+            return;
+
+        currentLevelIndex++;
+        switch (currentLevelIndex)
+        {
+            case 1:
+                levelToLoad = "Scene_Level_2";
+                break;
+            case 2:
+                levelToLoad = "Scene_Level_3";
+                break;
+            case 3:
+                levelToLoad = "Scene_Level_4";
+                break;
+            default:
+                currentLevelIndex = 0; // Reset to the first level if out of bounds
+                levelToLoad = "Scene_Level_1";
+                break;
+        }
+
+        if (displayedLevelSelection)
+            displayedLevelSelection.text = $"Level: {currentLevelIndex + 1}";
     }
     #endregion
 }

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Rotates a UI element to face the player in the game world.
+/// </summary>
 public class UILookAtPlayer : MonoBehaviour
 {
     #region Inspector Variables
@@ -11,6 +14,7 @@ public class UILookAtPlayer : MonoBehaviour
     private Transform player; //Reference to the player's transform
     #endregion
 
+    #region Unity Events
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player")?.transform; // Find the player GameObject by tag and get its transform
@@ -31,4 +35,5 @@ public class UILookAtPlayer : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
+    #endregion
 }
