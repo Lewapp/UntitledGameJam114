@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     public float maxVelocity = 10f; // Maximum velocity cap for movement
 
     [Header("Look Settings")]
-    public float mouseSensitivity = 5f; // Sensitivity for mouse/camera look
-    public float controllerSensitivity = 100f; // Sensitivity for stick/camera look
+    public float mouseSensitivity = 0.05f; // Sensitivity for mouse/camera look
+    public float controllerSensitivity = 200f; // Sensitivity for stick/camera look
     #endregion
 
     #region Private Variables   
@@ -91,6 +91,9 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
 
         // Move the character based on current vertical velocity
         characterController.Move(velocity * Time.deltaTime);
+
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSens", 0.05f); // Load mouse sensitivity from PlayerPrefs
+        controllerSensitivity = PlayerPrefs.GetFloat("GamepadSens", 200f); // Load gamepad sensitivity from PlayerPrefs
     }
 
     /// <summary>
@@ -183,7 +186,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     public void LookIA(InputAction.CallbackContext context)
     {
         // Store look input 
-        lookInput = context.ReadValue<Vector2>();
+        lookInput = context.ReadValue<Vector2>() * Time.timeScale;
 
         // Detect device type dynamically from the callback context
         var device = context.control.device;

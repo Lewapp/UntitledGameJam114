@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class MainMenuButtons : MonoBehaviour
 {
-    #region Insoector Variables
+    #region Inspector Variables
     [Header("Main Menu Settings")]
     [SerializeField] private GameObject startDoor; // Reference to the door GameObject that will be interacted when starting game
     [SerializeField] private UIFade fader; // Reference to the UIFade component for fade effects
@@ -79,6 +79,10 @@ public class MainMenuButtons : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 
     /// <summary>
