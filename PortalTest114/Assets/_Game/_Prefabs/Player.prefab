@@ -620,6 +620,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4178724561878924898}
+        m_TargetAssemblyTypeName: PauseMenuButtons, Assembly-CSharp
+        m_MethodName: SetPauseControllerSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3348811304289897652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,6 +1441,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4178724561878924898}
+        m_TargetAssemblyTypeName: PauseMenuButtons, Assembly-CSharp
+        m_MethodName: SetOptionControllerSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6055390258630508383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,6 +1880,8 @@ MonoBehaviour:
   - {fileID: 1185605454826244308}
   - {fileID: 7322820584646785474}
   - {fileID: 8433835638533607194}
+  pauseFirstSelect: {fileID: 6055390258630508383}
+  optionsFirstSelect: {fileID: 614318636582696473}
 --- !u!1 &7839698936842178953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,6 +2460,11 @@ PrefabInstance:
       addedObject: {fileID: 3550931124973298043}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d30a99285873fba4caa16e4aa32a64a9, type: 3}
+--- !u!1 &614318636582696473 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4937885885304281807, guid: d30a99285873fba4caa16e4aa32a64a9, type: 3}
+  m_PrefabInstance: {fileID: 5476547053214756054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1308171328273159468 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6784413780056046074, guid: d30a99285873fba4caa16e4aa32a64a9, type: 3}

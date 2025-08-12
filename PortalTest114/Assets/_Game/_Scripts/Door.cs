@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -9,11 +10,15 @@ using UnityEngine;
 /// remain open after interaction.</remarks>
 public class Door : MonoBehaviour, IInteractable
 {
-    #region Public Variables
+    #region Inspector Variables
     [Header("Door Settings")]
-    public GameObject doorObject; // The GameObject representing the door that will be opened or closed
-    public bool staysOpen = false; // If true, the door will remain open after interaction
-    public int interactorsRequired = 1; // Number of interactors required to open the door
+    [SerializeField] private GameObject doorObject; // The GameObject representing the door that will be opened or closed
+    [SerializeField] private bool staysOpen = false; // If true, the door will remain open after interaction
+    [SerializeField] private int interactorsRequired = 1; // Number of interactors required to open the door
+    [SerializeField] private TextMeshProUGUI[] interactorsLeftTXT; // UI elements to display the number of interactors required
+    [SerializeField] private Light[] pointLights; // Array of PointLight components to control lighting effects on the door
+    [SerializeField] private Color lockedColour = Color.red; // Color to indicate the door is locked
+    [SerializeField] private Color unlockedColour = Color.green; // Color to indicate the door is unlocked
     #endregion
 
     #region Private Variables
@@ -26,6 +31,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         // Ensure the doorObject is set and active at the start
         interactors = new List<GameObject>();
+        UpdateLockStateVisuals(); // Initialise the lock state visuals
     }
     #endregion
 
@@ -51,6 +57,30 @@ public class Door : MonoBehaviour, IInteractable
 
         return (foundSubject != null);
     }
+
+    private void UpdateLockStateVisuals()
+    {
+        foreach (TextMeshProUGUI requiredVisual in interactorsLeftTXT)
+        {
+            if (!requiredVisual)
+                continue;
+
+            // Update the text to show the number of interactors required
+            requiredVisual.text = $"{interactorsRequired - interactors.Count}";
+        }
+
+        // Determine the current color based on whether the door is open or closed
+        Color currentColour = (isOpen) ? unlockedColour : lockedColour;
+
+        foreach (Light pointLight in pointLights)
+        {
+            if (!pointLight)
+                continue;
+
+            // Set the color of the point lights to indicate the door is unlocked
+            pointLight.color = currentColour;
+        }
+    }
     #endregion
 
     #region Interfaces
@@ -75,6 +105,8 @@ public class Door : MonoBehaviour, IInteractable
         {
             isOpen = true;
         }
+
+        UpdateLockStateVisuals(); // Update the visuals to reflect the current lock state
 
         // If the door is set to stay open, it will not toggle back to closed
         if (!isOpen && staysOpen)
