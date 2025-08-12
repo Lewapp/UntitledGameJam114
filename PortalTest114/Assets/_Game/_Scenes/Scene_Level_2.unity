@@ -3094,19 +3094,19 @@ PrefabInstance:
       objectReference: {fileID: 1142543563}
     - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: teleportRotation.w
-      value: -0.7013083
+      value: -0.7071027
       objectReference: {fileID: 0}
     - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: teleportRotation.x
-      value: -0.0023823667
+      value: -0.0025296714
       objectReference: {fileID: 0}
     - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: teleportRotation.y
-      value: -0.7128496
+      value: 0.70710224
       objectReference: {fileID: 0}
     - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: teleportRotation.z
-      value: 0.002549125
+      value: -0.002403018
       objectReference: {fileID: 0}
     - target: {fileID: 4431416133180006989, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: m_TargetTexture
