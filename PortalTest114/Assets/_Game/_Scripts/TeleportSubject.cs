@@ -24,24 +24,23 @@ public class TeleportSubject : MonoBehaviour, ITeleportable
     #endregion
 
     #region Interfaces
-    public void Teleport(Vector3 position, Quaternion rotation, bool forceSolo)
+    public void Teleport(Vector3 position, Quaternion entryRotation, Quaternion exitPotation, bool forceSolo)
     {
         if (!canTeleport)
             return;
 
         transform.position = position;
-
         if (rb)
         {
             // Get relative rotation between entry and exit portal
-            Quaternion relativeRotation = rotation * Quaternion.Inverse(transform.rotation);
+            Quaternion relativeRotation = exitPotation * Quaternion.Inverse(entryRotation);
 
             // Rotate velocity by this relative rotation
             Vector3 newVelocity = relativeRotation * rb.linearVelocity;
             rb.linearVelocity = newVelocity;
         }
 
-       transform.rotation = rotation;
+       transform.rotation = exitPotation;
     }
     #endregion
 }

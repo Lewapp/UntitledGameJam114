@@ -2004,7 +2004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 704531969312267287, guid: f77e901db37baa549b941066388bc944, type: 3}
       propertyPath: teleportRotation.y
-      value: 0.70710677
+      value: -0.70710677
       objectReference: {fileID: 0}
     - target: {fileID: 1398650112158266117, guid: f77e901db37baa549b941066388bc944, type: 3}
       propertyPath: m_Mesh
