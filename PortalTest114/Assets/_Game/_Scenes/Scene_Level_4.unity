@@ -14423,6 +14423,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+--- !u!114 &1572890109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3318272301201292866, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+  m_PrefabInstance: {fileID: 1572890108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8662cb0f6b8b9784fa2248c815ac64fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1574580864 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 670720015785173661, guid: a884668326a05834481ef833c288724b, type: 3}
@@ -19658,10 +19669,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be6041be068ed9741842078b0ffdc066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Scene_Level_1
+  levelName: Scene_MainMenu
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  fader: {fileID: 1572890109}
 --- !u!23 &8694741494195466710
 MeshRenderer:
   m_ObjectHideFlags: 0

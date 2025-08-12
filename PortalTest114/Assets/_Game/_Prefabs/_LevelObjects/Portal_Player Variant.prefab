@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5785871873620173824
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 505963914772958835, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_Name
+      value: Portal_Player Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 640108285977650993, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 640108285977650993, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 640108285977650993, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.15686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 670720015785173661, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 651516603860fd64fa2827ba80f51008, type: 2}
+    - target: {fileID: 1211430707164141273, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 651516603860fd64fa2827ba80f51008, type: 2}
+    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: forceSolo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: teleportLocation.y
+      value: 1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: teleportLocation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: teleportRotation.w
+      value: 0.47996154
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: teleportRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: teleportRotation.y
+      value: -0.87728953
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: teleportRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218603116918143420, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: allowedEntryMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869622110689665870, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417200306946482419, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860717299408608134, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7789519402709811058, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707112728081915674, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: portalColor.b
+      value: 0.9889889
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707112728081915674, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: portalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707112728081915674, guid: a884668326a05834481ef833c288724b, type: 3}
+      propertyPath: portalColor.r
+      value: 0.4666667
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a884668326a05834481ef833c288724b, type: 3}

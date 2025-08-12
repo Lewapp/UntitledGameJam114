@@ -23,10 +23,10 @@ public class PortalView : MonoBehaviour
         if (targetPortalView != null)
         {
             portalMat = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
-            portalMat.SetFloat("_Surface", 1); // 0 = Opaque, 1 = Transparent
-            portalMat.SetFloat("_Blend", 0);   // 0 = Alpha
-            portalMat.SetFloat("_Cull", 2);    // 0 = Both, 1 = Front, 2 = Back
-            portalMat.SetColor("_BaseColor", portalColor); // Set tint & transparency
+            portalMat.SetFloat("_Surface", 1); 
+            portalMat.SetFloat("_Blend", 0);   
+            portalMat.SetFloat("_Cull", 2);   
+            portalMat.SetColor("_BaseColor", portalColor); 
             portalMat.mainTexture = portalRT;
 
             // Set the portal texture

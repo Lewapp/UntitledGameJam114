@@ -8,6 +8,25 @@ public class LoadLevelTrigger : MonoBehaviour
 {
     public string levelName; // The name of the level to load when the trigger is activated
     public LayerMask playerLayer; // The layer that the player must be on to trigger the level load
+    public UIFade fader; // Optional fade effect to apply before loading the level
+
+    private float currentDelayTime = 0f; // Timer for the next scene delay
+    private bool loadNextScene = false; // Flag to indicate if the next scene should be loaded
+
+    private void Update()
+    {
+        if (!loadNextScene)
+            return; // Exit if the next scene is not set to load
+
+        if (currentDelayTime <=  0)
+        {
+            loadNextScene = false; // Reset the flag to prevent multiple loads
+            SceneManager.LoadScene(levelName); // Load the specified level when an object enters the trigger collider
+            return;
+        }
+
+        currentDelayTime -= Time.deltaTime; // Decrease the delay timer
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,7 +39,13 @@ public class LoadLevelTrigger : MonoBehaviour
         // Check if the other collider's layer matches the playerLayer mask
         if ((playerLayer.value & (1 << other.gameObject.layer)) != 0)
         {
-            SceneManager.LoadScene(levelName); // Load the specified level when an object enters the trigger collider
+            loadNextScene = true; // Set the flag to load the next scene
         }
+
+        if (!fader)
+            return;
+
+        fader.StartFade(); // Start the fade effect if a UIFade component is assigned
+        currentDelayTime = fader.fadeDuration + fader.fadeDelay; // Set the delay time based on the fade duration and delay
     }
 }
