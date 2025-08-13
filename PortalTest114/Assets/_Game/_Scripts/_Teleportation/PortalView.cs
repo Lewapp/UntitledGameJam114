@@ -5,6 +5,7 @@ public class PortalView : MonoBehaviour
     #region Public Variables
     public Camera portalCamera; // The camera that renders the portal view
     public Renderer targetPortalView; // The portal view that this camera will render to
+    public Renderer thisPortalRenderer; // The renderer of this portal
     public Color portalColor = new Color(1f, 1f, 1f, 0.8f); // Default: white with 80% opacity
     #endregion
 
@@ -17,7 +18,7 @@ public class PortalView : MonoBehaviour
     private void Start()
     {
         // Create a new RenderTexture for the portal camera
-        portalRT = new RenderTexture(Screen.width, Screen.height, 24);
+        portalRT = new RenderTexture(Screen.width / 2, Screen.height / 2, 24);
         portalCamera.targetTexture = portalRT;
 
         if (targetPortalView != null)
@@ -38,6 +39,14 @@ public class PortalView : MonoBehaviour
             // Assign it to the target portal renderer
             targetPortalView.material = portalMat;
         }
+    }
+
+    private void Update()
+    {
+        if (!thisPortalRenderer)
+            return;
+
+        portalCamera.enabled = thisPortalRenderer.isVisible;
     }
     #endregion
 }

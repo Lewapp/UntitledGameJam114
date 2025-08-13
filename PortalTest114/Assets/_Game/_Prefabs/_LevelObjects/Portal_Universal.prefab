@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalCamera: {fileID: 4431416133180006989}
   targetPortalView: {fileID: 0}
+  thisPortalRenderer: {fileID: 670720015785173661}
   portalColor: {r: 0.7110495, g: 0.4669811, b: 1, a: 0.23921569}
 --- !u!82 &4974270932275594765
 AudioSource:
