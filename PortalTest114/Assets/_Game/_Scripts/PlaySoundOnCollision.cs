@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
 
 /// <summary>
 /// Plays a sound when the object collides with another object, with support for random pitch variation and collision

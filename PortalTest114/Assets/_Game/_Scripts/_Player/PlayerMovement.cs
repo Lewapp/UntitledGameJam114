@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     #endregion
 
     #region Public Variables
+    public static PlayerMovement instance; // Singleton instance for easy access
+
     [Header("Movement Settings")]
     public float moveSpeed = 5f;       // Player movement speed
     public float gravity = 9.81f;      // Gravity strength
@@ -41,6 +43,13 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     #region Unity Events
     private void Start()
     {
+        if (instance && instance != this)
+        {
+            Destroy(gameObject); // Ensure only one instance exists
+            return;
+        }
+        instance = this; // Set the singleton instance
+
         canTeleport = true; // Allow teleportation by default
 
         // Get the CharacterController from the GameObject
@@ -60,6 +69,14 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
         // Lock the cursor to the center of the screen and hide it
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void OnDestroy()
+    {
+        if (instance == this)
+        {
+            instance = null; // Clear the singleton instance when this object is destroyed
+        }
     }
 
     private void Update()
