@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     private Vector2 lookInput;
     private float xRotation = 0f;      // Vertical look rotation value
     private Camera playerCamera;       // Reference to the player's camera
-    private bool disableLook = false; // Flag to disable looking around
     #endregion
 
     #region Unity Events
@@ -120,12 +119,6 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
         if (playerCamera == null)
             return;
 
-        if (disableLook)
-        {
-            disableLook = false; // Reset disableLook flag after teleportation
-            return; // Exit if looking is disabled
-        }
-
         // Determine sensitivity based on input type
         float _sensitivity = usingController ? controllerSensitivity * Time.deltaTime: mouseSensitivity;
 
@@ -147,8 +140,6 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     {
         if (!canTeleport)
             return; // If teleportation is not allowed, exit the method
-
-        disableLook = true; // Disable looking around during teleportation
 
         // Drop any held object if forceSolo is true
         if (forceSolo)

@@ -28,6 +28,9 @@ public class MainMenuButtons : MonoBehaviour
         {
             startDelay = fader.fadeDuration + fader.fadeDelay; // Use the fade duration from the UIFade component
         }
+
+        Cursor.lockState = CursorLockMode.Confined; // Unlock the cursor for the main menu
+        Cursor.visible = true; // Make the cursor visible
     }
 
     private void Update()

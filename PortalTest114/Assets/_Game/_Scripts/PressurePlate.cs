@@ -11,11 +11,13 @@ using UnityEditor;
 /// </summary>
 public class PressurePlate : MonoBehaviour
 {
-    #region Public Variables
+    #region Inspector Variables
     [Header("Button Settings")]
-    public GameObject[] connectedObjects; // Objects that will be interacted with when the pressure plate is activated
-    public Vector3 triggerSize; // Size of the trigger area for the pressure plate
-    public LayerMask ignoreLayer; // Layer mask to ignore certain layers during interaction
+    [SerializeField] private GameObject[] connectedObjects; // Objects that will be interacted with when the pressure plate is activated
+    [SerializeField] private Vector3 triggerSize; // Size of the trigger area for the pressure plate
+    [SerializeField] private LayerMask ignoreLayer; // Layer mask to ignore certain layers during interaction
+    [SerializeField] private GameObject offVisual; // Visual representation of the pressure plate when not pressed
+    [SerializeField] private GameObject onVisual; // Visual representation of the pressure plate when not pressed
     #endregion
 
     #region Private Variables
@@ -43,6 +45,9 @@ public class PressurePlate : MonoBehaviour
         {
             isPressed = _successHit; // Update pressed state based on whether an object is detected
             InteractWithObjects(); // Call interaction method to handle the change in state
+
+            offVisual?.SetActive(!isPressed); // Toggle off visual based on pressed state
+            onVisual?.SetActive(isPressed); // Toggle on visual based on pressed state
         }
     }
     #endregion
