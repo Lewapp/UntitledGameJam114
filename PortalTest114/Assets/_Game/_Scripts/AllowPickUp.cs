@@ -10,6 +10,10 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
     public PickUpMode dropMode { get; set; }
     #endregion
 
+    #region Inspector Variables
+    [SerializeField] private AudioSource pickUpSound; // Sound to play when the object is picked up
+    #endregion 
+
     #region Private Variables
     private Rigidbody rb; // Reference to the Rigidbody component for physics interactions
     private BoxCollider boxCollider; // Reference to the BoxCollider component for interaction detection
@@ -43,7 +47,11 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
     private void ApplyFowardForce()
     {
         if (dropMode != PickUpMode.Throw)
+        {
+            pickUpSound?.PlayOneShot(pickUpSound.clip); // Play the pick-up sound if available
             return; // If the drop mode is not Throw, do not apply force
+        }
+
 
         // Apply a forward force to the object if it has a Rigidbody component
         if (rb != null)
@@ -71,6 +79,8 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
             ApplyFowardForce(); // Apply a forward force when the object is released
             return;
         }
+
+        pickUpSound?.PlayOneShot(pickUpSound.clip); // Play the pick-up sound if available
 
         rb.isKinematic = true; // Disable physics when picked up
         boxCollider.enabled = false; // Disable the collider to prevent further interactions

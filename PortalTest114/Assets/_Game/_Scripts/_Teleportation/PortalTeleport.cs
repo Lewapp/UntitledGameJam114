@@ -17,10 +17,17 @@ public class PortalTeleport : MonoBehaviour
     #region Public Variables
     [Header("Portal Settings")]
     public PortalTeleport linkedPortal; // The portal this one is linked to
-    public LayerMask allowedEntryMask; // Layer mask to determine which objects can enter the portal
     public Vector3 teleportLocation; // The position offset for teleportation
     public Quaternion teleportRotation = Quaternion.identity; // The rotation offset for teleportation
-    public bool forceSolo = false; // If true, objects cannot bring other objects with it through the portal
+    #endregion
+
+    #region Inspector Variables
+    [SerializeField] private LayerMask allowedEntryMask; // Layer mask to determine which objects can enter the portal
+    [SerializeField] private bool forceSolo = false; // If true, objects cannot bring other objects with it through the portal
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource; // Audio source for playing portal sounds
+    [SerializeField] private Vector2 randomPitchRange = new Vector2(0.9f, 1.1f); // Range for random pitch variation when playing sounds
     #endregion
 
     #region Private Variables
@@ -45,15 +52,32 @@ public class PortalTeleport : MonoBehaviour
 
         // Teleport to the linked portal's position plus its teleportLocation offset
         other.GetComponent<ITeleportable>()?.Teleport(linkedPortal.transform.position + linkedPortal.teleportLocation, teleportRotation, linkedPortal.teleportRotation, forceSolo);
-    
         linkedPortal.SetExpectingObject(other.gameObject); // Set the linked portal to expect this object next
+
+        PlayPortalSound(); // Play the portal sound on this portal
+        linkedPortal.PlayPortalSound(); // Play the portal sound on the linked portal
     }
     #endregion
 
     #region Methods
+    /// <summary>
+    /// Sets the object that is expected to enter the portal next.
+    /// </summary>
     public void SetExpectingObject(GameObject newObject)
     {
         expectingObject = newObject; // Set the object that is expected to enter the portal next
+    }
+
+    /// <summary>
+    /// Randomises the pitch of the portal sound and plays it.
+    /// </summary>
+    public void PlayPortalSound()
+    {
+        if (!audioSource)
+            return;
+
+        audioSource.pitch = Random.Range(randomPitchRange.x, randomPitchRange.y); // Set a random pitch within the specified range
+        audioSource.PlayOneShot(audioSource.clip); // Play the portal sound if available
     }
     #endregion
 

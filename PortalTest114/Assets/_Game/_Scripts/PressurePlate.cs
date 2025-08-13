@@ -18,6 +18,10 @@ public class PressurePlate : MonoBehaviour
     [SerializeField] private LayerMask ignoreLayer; // Layer mask to ignore certain layers during interaction
     [SerializeField] private GameObject offVisual; // Visual representation of the pressure plate when not pressed
     [SerializeField] private GameObject onVisual; // Visual representation of the pressure plate when not pressed
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource; // Audio source for playing sounds
+    [SerializeField] private Vector2 offOnPitch; // Pitch range for the sound when the pressure plate is pressed or released
     #endregion
 
     #region Private Variables
@@ -46,8 +50,16 @@ public class PressurePlate : MonoBehaviour
             isPressed = _successHit; // Update pressed state based on whether an object is detected
             InteractWithObjects(); // Call interaction method to handle the change in state
 
+            // Visuals
             offVisual?.SetActive(!isPressed); // Toggle off visual based on pressed state
             onVisual?.SetActive(isPressed); // Toggle on visual based on pressed state
+
+            // Audio
+            if (!audioSource)
+                return;
+
+            audioSource.pitch = (isPressed) ? offOnPitch.y : offOnPitch.x; // Set audio pitch based on pressed state
+            audioSource.PlayOneShot(audioSource.clip); // Play the sound effect
         }
     }
     #endregion

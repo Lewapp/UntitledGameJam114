@@ -941,10 +941,18 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 920414208}
+    - target: {fileID: 4416950513924611756, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2559
+      objectReference: {fileID: 0}
     - target: {fileID: 5893828506943469026, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
       propertyPath: m_Name
       value: PressurePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 6343354182520809083, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 920414208}
     - target: {fileID: 7371902663714032137, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -953,6 +961,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 8120627684255497705, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 418934654}
     - target: {fileID: 8201018602521474441, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
       propertyPath: 'connectedObjects.Array.data[0]'
       value: 
@@ -961,6 +973,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 418934654}
+    - target: {fileID: 9023905661342303489, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2452
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1783,10 +1799,22 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2026452496}
+    - target: {fileID: 4416950513924611756, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2559
+      objectReference: {fileID: 0}
     - target: {fileID: 5893828506943469026, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
       propertyPath: m_Name
       value: PressurePlate (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6343354182520809083, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2026452496}
+    - target: {fileID: 8120627684255497705, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 88407195}
     - target: {fileID: 8201018602521474441, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
       propertyPath: 'connectedObjects.Array.data[0]'
       value: 
@@ -1795,6 +1823,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 88407195}
+    - target: {fileID: 9023905661342303489, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2452
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2338,7 +2370,7 @@ PrefabInstance:
       objectReference: {fileID: 1859689510}
     - target: {fileID: 6656916743469975299, guid: 01d4599cd79f5f945a5f270a45650e63, type: 3}
       propertyPath: m_VersionIndex
-      value: 7175
+      value: 7199
       objectReference: {fileID: 0}
     - target: {fileID: 7868921797497636429, guid: 01d4599cd79f5f945a5f270a45650e63, type: 3}
       propertyPath: m_TargetTexture
@@ -3880,10 +3912,22 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 68919842}
+    - target: {fileID: 4416950513924611756, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2559
+      objectReference: {fileID: 0}
     - target: {fileID: 5893828506943469026, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
       propertyPath: m_Name
       value: PressurePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 6343354182520809083, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 68919842}
+    - target: {fileID: 8120627684255497705, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 647575070}
     - target: {fileID: 8201018602521474441, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
       propertyPath: connectedObjects.Array.size
       value: 1
@@ -3900,6 +3944,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 647575070}
+    - target: {fileID: 9023905661342303489, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2452
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5548,10 +5596,22 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1277923282}
+    - target: {fileID: 4416950513924611756, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2559
+      objectReference: {fileID: 0}
     - target: {fileID: 5893828506943469026, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
       propertyPath: m_Name
       value: PressurePlate (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6343354182520809083, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1277923282}
+    - target: {fileID: 8120627684255497705, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 903047998}
     - target: {fileID: 8201018602521474441, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
       propertyPath: 'connectedObjects.Array.data[0]'
       value: 
@@ -5560,6 +5620,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 903047998}
+    - target: {fileID: 9023905661342303489, guid: 6e57d37ed84240347a11d790077b876e, type: 3}
+      propertyPath: m_VersionIndex
+      value: 2452
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6657,7 +6721,7 @@ PrefabInstance:
       objectReference: {fileID: 2018272989}
     - target: {fileID: 1515404451106014888, guid: f77e901db37baa549b941066388bc944, type: 3}
       propertyPath: m_VersionIndex
-      value: 7175
+      value: 7199
       objectReference: {fileID: 0}
     - target: {fileID: 1873623841097869889, guid: f77e901db37baa549b941066388bc944, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7483,7 +7547,7 @@ PrefabInstance:
       objectReference: {fileID: 751005836}
     - target: {fileID: 1515404451106014888, guid: f77e901db37baa549b941066388bc944, type: 3}
       propertyPath: m_VersionIndex
-      value: 7175
+      value: 7199
       objectReference: {fileID: 0}
     - target: {fileID: 1873623841097869889, guid: f77e901db37baa549b941066388bc944, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7986,7 +8050,7 @@ PrefabInstance:
       objectReference: {fileID: 888487471}
     - target: {fileID: 6656916743469975299, guid: 01d4599cd79f5f945a5f270a45650e63, type: 3}
       propertyPath: m_VersionIndex
-      value: 7175
+      value: 7199
       objectReference: {fileID: 0}
     - target: {fileID: 7868921797497636429, guid: 01d4599cd79f5f945a5f270a45650e63, type: 3}
       propertyPath: m_ClearFlags
