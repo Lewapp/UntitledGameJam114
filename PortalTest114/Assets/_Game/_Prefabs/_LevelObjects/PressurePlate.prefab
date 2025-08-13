@@ -1458,7 +1458,7 @@ MonoBehaviour:
   triggerSize: {x: 0.3636037, y: 0.60334754, z: 0.3636037}
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 257
   offVisual: {fileID: 3583867755656972547}
   onVisual: {fileID: 5560850410705674858}
 --- !u!1 &7176037088999600404
