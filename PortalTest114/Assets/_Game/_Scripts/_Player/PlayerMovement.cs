@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     private Vector2 lookInput;
     private float xRotation = 0f;      // Vertical look rotation value
     private Camera playerCamera;       // Reference to the player's camera
+    private bool disableLook = false; // Flag to disable looking around
     #endregion
 
     #region Unity Events
@@ -119,6 +120,12 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
         if (playerCamera == null)
             return;
 
+        if (disableLook)
+        {
+            disableLook = false; // Reset disableLook flag after teleportation
+            return; // Exit if looking is disabled
+        }
+
         // Determine sensitivity based on input type
         float _sensitivity = usingController ? controllerSensitivity * Time.deltaTime: mouseSensitivity;
 
@@ -136,10 +143,12 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     /// <summary>
     /// Teleports the player to the specified position and rotation.
     /// </summary>
-    public void Teleport(Vector3 position, Quaternion entryrotation, Quaternion exitRotation,bool forceSolo)
+    public void Teleport(Vector3 position, Quaternion entryrotation, Quaternion exitRotation, bool forceSolo)
     {
         if (!canTeleport)
             return; // If teleportation is not allowed, exit the method
+
+        disableLook = true; // Disable looking around during teleportation
 
         // Drop any held object if forceSolo is true
         if (forceSolo)
@@ -150,7 +159,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
 
         characterController.enabled = false;
         transform.position = position; // Set the player's position to the teleport location
-        transform.rotation = Quaternion.Euler(0f, 0f, exitRotation.z); // Set the player's rotation to the teleport rotation
+        transform.rotation = Quaternion.Euler(0f, exitRotation.eulerAngles.y, 0f); // Set the player's rotation to the teleport rotation
         characterController.enabled = true;
     }
     #endregion
@@ -187,6 +196,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     {
         // Store look input 
         lookInput = context.ReadValue<Vector2>() * Time.timeScale;
+
 
         // Detect device type dynamically from the callback context
         var device = context.control.device;
