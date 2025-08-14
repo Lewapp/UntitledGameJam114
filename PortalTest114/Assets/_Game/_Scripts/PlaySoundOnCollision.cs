@@ -50,6 +50,9 @@ public class PlaySoundOnCollision : MonoBehaviour
         }
 
         cornerTouching = new bool[8];
+
+        if (collisionSound)
+            StaticSFX.instance?.InitialiseNewSource(collisionSound); // Initialise the sfx audio if available
     }
     
     void OnCollisionStay(Collision collision)

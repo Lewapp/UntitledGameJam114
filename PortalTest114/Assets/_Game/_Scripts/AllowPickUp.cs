@@ -28,6 +28,9 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
         rb = GetComponent<Rigidbody>();
         // Ensure the BoxCollider component is present
         boxCollider = GetComponent<BoxCollider>(); 
+
+        if (pickUpSound)
+            StaticSFX.instance?.InitialiseNewSource(pickUpSound); // Initialise the pick up sound if available
     }
     #endregion
 

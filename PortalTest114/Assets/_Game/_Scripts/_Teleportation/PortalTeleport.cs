@@ -34,6 +34,13 @@ public class PortalTeleport : MonoBehaviour
     #endregion
 
     #region Unity Events
+    private void Start()
+    {
+        if (audioSource)
+            StaticSFX.instance?.InitialiseNewSource(audioSource); // Initialise the sfx audio if available
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!linkedPortal)

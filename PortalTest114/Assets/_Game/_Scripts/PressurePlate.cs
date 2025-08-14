@@ -30,6 +30,12 @@ public class PressurePlate : MonoBehaviour
     #endregion
 
     #region Unity Events
+    private void Start()
+    {
+        if (audioSource && StaticSFX.instance)
+            StaticSFX.instance.InitialiseNewSource(audioSource); // Initialise the sfx audio if available
+    }
+
     private void FixedUpdate()
     {
         bool _successHit = false; // Reset pressed state at the start of each FixedUpdate

@@ -7402,7 +7402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6932020627954322154, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
       propertyPath: zoomSpeed
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7412155405219871166, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
       propertyPath: m_LocalPosition.x
