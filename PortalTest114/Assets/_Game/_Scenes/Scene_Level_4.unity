@@ -132,6 +132,16 @@ PrefabInstance:
       value: You can throw held boxes by pressing left click or the right trigger
         on the gamepad.
       objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[0].text
+      value: You can throw held boxes by pressing left click or the right trigger
+        on the gamepad.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[1].text
+      value: "Puedes lanzar las cajas que est\xE1s sosteniendo pulsando clic izquierdo
+        o el gatillo derecho en el mando."
+      objectReference: {fileID: 0}
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4212,6 +4222,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4981531076204611890, guid: 387b5c20ce2217e46ba514bd9ee21f22, type: 3}
   m_PrefabInstance: {fileID: 602194811}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &605831846
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6978162392784657875, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_Name
+      value: LanguageManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.0250335
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5134468
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.620476
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
 --- !u!43 &607837558
 Mesh:
   m_ObjectHideFlags: 0
@@ -6678,6 +6745,14 @@ PrefabInstance:
     - target: {fileID: 12045422894696757, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_text
       value: You shouldn't be here :)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[0].text
+      value: You shouldn't be here :)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[1].text
+      value: "No deber\xEDas estar aqu\xED :)"
       objectReference: {fileID: 0}
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Pivot.x
@@ -21678,31 +21753,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.353243
+      value: 4.403243
       objectReference: {fileID: 0}
     - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.15644503
+      value: -0.05644512
       objectReference: {fileID: 0}
     - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000027258427
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0000011290783
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.92387986
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.38268277
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 229168971209904106, guid: a884668326a05834481ef833c288724b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -28648,7 +28723,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 12045422894696757, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_text
-      value: You can Jump by pressing Space or A/X on the controller
+      value: You can Jump by pressing Space or A/X on the controller.
       objectReference: {fileID: 0}
     - target: {fileID: 12045422894696757, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_fontColor.a
@@ -28656,7 +28731,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 12045422894696757, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 3222464255
+      value: 4279428863
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[0].text
+      value: You can Jump by pressing Space or A/X on the controller.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[1].text
+      value: Puedes saltar pulsando Espacio o A/X en el mando.
       objectReference: {fileID: 0}
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Pivot.x
@@ -29965,3 +30048,4 @@ SceneRoots:
   - {fileID: 1781936771}
   - {fileID: 67386364}
   - {fileID: 410293585}
+  - {fileID: 605831846}

@@ -335,6 +335,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31443857}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &34234670
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6978162392784657875, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_Name
+      value: LanguageManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.0250335
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5134468
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.620476
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
 --- !u!43 &68919842
 Mesh:
   m_ObjectHideFlags: 0
@@ -1512,6 +1569,7 @@ GameObject:
   - component: {fileID: 371839092}
   - component: {fileID: 371839094}
   - component: {fileID: 371839093}
+  - component: {fileID: 371839095}
   m_Layer: 5
   m_Name: Prompt (1)
   m_TagString: Untagged
@@ -1587,8 +1645,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.1
-  m_fontSizeBase: 0.1
+  m_fontSize: 0.12
+  m_fontSizeBase: 0.12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0.1
@@ -1639,6 +1697,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371839091}
   m_CullTransparentMesh: 1
+--- !u!114 &371839095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371839091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331810f0a44b814fba2944e8781d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProComponent: {fileID: 371839093}
+  languageStrings:
+  - language: 1
+    text: "Warning: This portal is not compatible with artificial hearts, bionic
+      limbs, cybernetic implants, or that one dental filling you\u2019ve been meaning
+      to replace."
+  - language: 2
+    text: "Advertencia: este portal no es compatible con corazones artificiales,
+      extremidades bi\xF3nicas, implantes cibern\xE9ticos ni con ese empaste dental
+      que llevas tiempo pensando en reemplazar."
 --- !u!43 &381481365
 Mesh:
   m_ObjectHideFlags: 0
@@ -9608,6 +9688,24 @@ PrefabInstance:
       value: 'This is a blue portal (aka an organic portal). Only living things can
         pass through these, like yourself. '
       objectReference: {fileID: 0}
+    - target: {fileID: 12045422894696757, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: m_fontSize
+      value: 0.294
+      objectReference: {fileID: 0}
+    - target: {fileID: 12045422894696757, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.294
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[0].text
+      value: 'This is a blue portal (aka an organic portal). Only living things can
+        pass through these, like yourself. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[1].text
+      value: "Este es un portal azul (tambi\xE9n llamado portal org\xE1nico). Solo
+        los seres vivos pueden pasar por \xE9l, como t\xFA."
+      objectReference: {fileID: 0}
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -9691,6 +9789,18 @@ PrefabInstance:
     - target: {fileID: 5792854077782748299, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Name
       value: HP_PlayerPortal_CANVAS
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633150562119803309, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: textMeshPros.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633150562119803309, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: 'textMeshPros.Array.data[2]'
+      value: 
+      objectReference: {fileID: 371839093}
+    - target: {fileID: 8043974213373904927, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: m_text
+      value: '| 2 |'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11018,6 +11128,16 @@ PrefabInstance:
       value: This is a red portal (aka an object portal). Only objects can pass through
         these.
       objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[0].text
+      value: This is a red portal (aka an object portal). Only objects can pass through
+        these.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[1].text
+      value: "Este es un portal rojo (tambi\xE9n llamado un portal objetos). Solo
+        los objetos pueden pasar por \xE9l."
+      objectReference: {fileID: 0}
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11097,6 +11217,10 @@ PrefabInstance:
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023745501065622365, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.14499986
       objectReference: {fileID: 0}
     - target: {fileID: 5792854077782748299, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Name
@@ -14340,3 +14464,4 @@ SceneRoots:
   - {fileID: 1677621162}
   - {fileID: 255068199}
   - {fileID: 1478215354}
+  - {fileID: 34234670}
