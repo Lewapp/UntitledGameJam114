@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 5600301693408227611}
   - component: {fileID: 7128245024933513791}
   - component: {fileID: 5190930286608615140}
+  - component: {fileID: 6932020627954322154}
   - component: {fileID: 5556789548984078153}
   m_Layer: 7
   m_Name: Player
@@ -305,6 +306,20 @@ MonoBehaviour:
   maxVelocity: 35
   mouseSensitivity: 0.05
   controllerSensitivity: 200
+--- !u!114 &6932020627954322154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526861947605447265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13bcb86f08f7a12438d8fff09cda7bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomSpeed: 2
+  zoomFOV: 40
 --- !u!114 &5556789548984078153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +497,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2bf2a1d6-b774-493d-a640-0e9445abd52b
     m_ActionName: 'Player/Pause[/Keyboard/p,/Keyboard/escape,/XInputControllerWindows/start]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6932020627954322154}
+        m_TargetAssemblyTypeName: PlayerZoom, Assembly-CSharp
+        m_MethodName: ZoomCamera
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8ee52b62-58f9-41ae-84f9-37f3398b7f2f
+    m_ActionName: 'Player/Zoom[/Mouse/rightButton,/XInputControllerWindows/leftTrigger]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

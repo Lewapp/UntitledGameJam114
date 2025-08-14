@@ -6224,6 +6224,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 387b5c20ce2217e46ba514bd9ee21f22, type: 3}
+--- !u!114 &1366681594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6932020627954322154, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+  m_PrefabInstance: {fileID: 1572890108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13bcb86f08f7a12438d8fff09cda7bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1377187460
 Mesh:
   m_ObjectHideFlags: 0
@@ -7348,6 +7359,50 @@ PrefabInstance:
     - target: {fileID: 1526861947605447265, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionId
+      value: 8ee52b62-58f9-41ae-84f9-37f3398b7f2f
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
+      value: 'Player/Zoom[/Mouse/rightButton,/XInputControllerWindows/leftTrigger]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1366681594}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ZoomCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerZoom, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556789548984078153, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: m_ActionEvents.Array.data[20].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6932020627954322154, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
+      propertyPath: zoomSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7412155405219871166, guid: 4a7da8eabc4985d46baabe54b5f39635, type: 3}
       propertyPath: m_LocalPosition.x

@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     [Header("Look Settings")]
     public float mouseSensitivity = 0.05f; // Sensitivity for mouse/camera look
     public float controllerSensitivity = 200f; // Sensitivity for stick/camera look
+    public float sensitivityMultiplier = 1f; // Multiplier for sensitivity adjustments
     #endregion
 
     #region Private Variables   
@@ -138,6 +139,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
 
         // Determine sensitivity based on input type
         float _sensitivity = usingController ? controllerSensitivity * Time.deltaTime: mouseSensitivity;
+        _sensitivity *= sensitivityMultiplier; // Apply sensitivity multiplier
 
         // Horizontal look (rotate player body)
         transform.Rotate(Vector3.up * lookInput.x * _sensitivity);
