@@ -286,6 +286,7 @@ GameObject:
   - component: {fileID: 2336229489714601315}
   - component: {fileID: 6941651651920604726}
   - component: {fileID: 6633150562119803309}
+  - component: {fileID: 1035053571134553160}
   m_Layer: 5
   m_Name: HP_Prompt_CANVAS
   m_TagString: Untagged
@@ -397,6 +398,24 @@ MonoBehaviour:
   textMeshPros:
   - {fileID: 8043974213373904927}
   - {fileID: 12045422894696757}
+--- !u!114 &1035053571134553160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792854077782748299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331810f0a44b814fba2944e8781d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProComponent: {fileID: 12045422894696757}
+  languageStrings:
+  - language: 1
+    text: 
+  - language: 2
+    text: 
 --- !u!1 &7644575130161434539
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,8 +42,6 @@ public class Ambiance : MonoBehaviour
         if (!ambianceAudioSource)
             return;
 
-        Debug.Log("Updating Volume: " + initialVolume + " : " + PlayerPrefs.GetFloat("AmbianceVolume", 1f));
-
         // Update the volume of the ambiance sound based on PlayerPrefs
         ambianceAudioSource.volume = initialVolume * PlayerPrefs.GetFloat("MusicVolume", 1f);
     }

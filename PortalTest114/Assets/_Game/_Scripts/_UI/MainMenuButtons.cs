@@ -12,6 +12,7 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private GameObject startDoor; // Reference to the door GameObject that will be interacted when starting game
     [SerializeField] private UIFade fader; // Reference to the UIFade component for fade effects
     [SerializeField] private TextMeshProUGUI displayedLevelSelection; // Text element to display the current level selection
+    [SerializeField] private TextMeshProUGUI displayedLanguageSelection; // Text element to display the current language selection
     #endregion
 
     #region Private Variables
@@ -31,6 +32,9 @@ public class MainMenuButtons : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Confined; // Unlock the cursor for the main menu
         Cursor.visible = true; // Make the cursor visible
+
+        if (displayedLanguageSelection)
+            displayedLanguageSelection.text = LanguageSwitcher.instance?.GetCurrentLanguage().ToString();
     }
 
     private void Update()
@@ -115,7 +119,37 @@ public class MainMenuButtons : MonoBehaviour
         }
 
         if (displayedLevelSelection)
-            displayedLevelSelection.text = $"Level: {currentLevelIndex + 1}";
+        {
+            int index = displayedLevelSelection.text.IndexOf(':');
+            string result = index >= 0 ? displayedLevelSelection.text.Substring(0, index) : displayedLevelSelection.text;
+            displayedLevelSelection.text = $"{result}: {currentLevelIndex + 1}";
+        }
+    }
+
+    public void ChangeLanguage()
+    {
+        if (!LanguageSwitcher.instance)
+            return;
+
+        LanguageSwitcher.Language currentLanguage = LanguageSwitcher.instance.GetCurrentLanguage();
+
+        if (currentLanguage == LanguageSwitcher.Language.English)
+        {
+            LanguageSwitcher.instance.SetLanguage(LanguageSwitcher.Language.Español);
+        }
+        else
+        {
+            LanguageSwitcher.instance.SetLanguage(LanguageSwitcher.Language.English);
+        }
+
+
+        if (displayedLanguageSelection)
+        {
+            displayedLanguageSelection.text = LanguageSwitcher.instance.GetCurrentLanguage().ToString();
+        }
+
+        currentLevelIndex--;
+        ChangeLevelSelect(); // Update the level selection to reflect the language change
     }
     #endregion
 }

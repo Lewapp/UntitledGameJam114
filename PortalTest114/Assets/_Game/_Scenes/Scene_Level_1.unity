@@ -864,6 +864,63 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &183719331
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6978162392784657875, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_Name
+      value: LanguageManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.0250335
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.5134468
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -17.620476
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187568086083376744, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3f2d8c5194b66a4d88cccd39157ffbb, type: 3}
 --- !u!1001 &200659739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1433,6 +1490,16 @@ PrefabInstance:
     - target: {fileID: 12045422894696757, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_enableAutoSizing
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[0].text
+      value: You can drop boxes by holding the same button. Place the box on this
+        pressure plate to open the door infront.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[1].text
+      value: "Puedes soltar las cajas manteniendo pulsado el mismo bot\xF3n. Coloca
+        la caja sobre esta plataforma de presi\xF3n para abrir la puerta de delante."
       objectReference: {fileID: 0}
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Pivot.x
@@ -2671,6 +2738,16 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[0].text
+      value: Congratulations! You placed a box on a button. Please proceed through
+        the green portal to get to the next level.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[1].text
+      value: "\xA1Felicidades! Has colocado una caja sobre un bot\xF3n. Por favor,
+        atraviesa el portal verde para pasar al siguiente nivel."
+      objectReference: {fileID: 0}
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3488,6 +3565,16 @@ PrefabInstance:
       propertyPath: m_text
       value: You can press WASD or use the left analogue stick to move around. Use
         the mouse or the right analogue stick to look.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[0].text
+      value: You can press WASD or use the left analogue stick to move around. Use
+        the mouse or the right analogue stick to look.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[1].text
+      value: "Puedes usar WASD o el stick anal\xF3gico izquierdo para moverte. Usa
+        el rat\xF3n o el stick anal\xF3gico derecho para mirar."
       objectReference: {fileID: 0}
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Pivot.x
@@ -5630,6 +5717,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[0].text
+      value: "This is a box spawner. You can spawn the box by holding E on the Keyboard
+        or X/\u25A1 on the gamepad, whilst looking at the red button."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035053571134553160, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
+      propertyPath: languageStrings.Array.data[1].text
+      value: "Este es un generador de cajas. Puedes generar la caja manteniendo pulsado
+        E en el teclado o X/\u25A1 en el mando, mientras miras el bot\xF3n rojo."
+      objectReference: {fileID: 0}
     - target: {fileID: 2618399547819294180, guid: 963422fc5f39b984e8f4a83996be607f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5744,3 +5841,4 @@ SceneRoots:
   - {fileID: 2027596152}
   - {fileID: 961600417}
   - {fileID: 1920071323}
+  - {fileID: 183719331}

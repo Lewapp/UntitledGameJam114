@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,7 @@ public class PauseMenuButtons : MonoBehaviour
     [SerializeField] private GameObject[] pauseObjects; // Array of GameObjects representing the pause menu options
     [SerializeField] private GameObject pauseFirstSelect; // Reference to the first selectable object in the pause menu
     [SerializeField] private GameObject optionsFirstSelect; // Reference to the first selectable object in the options menu
+    [SerializeField] private TextMeshProUGUI displayedLanguageSelection; // Text element to display the current language selection
     #endregion
 
     #region Private Variables
@@ -23,6 +25,12 @@ public class PauseMenuButtons : MonoBehaviour
     private void Awake()
     {
         eventSystem = EventSystem.current; // Get the current EventSystem instance
+    }
+
+    private void Start()
+    {
+        if (displayedLanguageSelection)
+            displayedLanguageSelection.text = LanguageSwitcher.instance?.GetCurrentLanguage().ToString();
     }
     #endregion
 
@@ -106,6 +114,29 @@ public class PauseMenuButtons : MonoBehaviour
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+
+    public void ChangeLanguage()
+    {
+        if (!LanguageSwitcher.instance)
+            return;
+
+        LanguageSwitcher.Language currentLanguage = LanguageSwitcher.instance.GetCurrentLanguage();
+
+        if (currentLanguage == LanguageSwitcher.Language.English)
+        {
+            LanguageSwitcher.instance.SetLanguage(LanguageSwitcher.Language.Español);
+        }
+        else
+        {
+            LanguageSwitcher.instance.SetLanguage(LanguageSwitcher.Language.English);
+        }
+
+
+        if (displayedLanguageSelection)
+        {
+            displayedLanguageSelection.text = LanguageSwitcher.instance.GetCurrentLanguage().ToString();
+        }
     }
     #endregion
 }

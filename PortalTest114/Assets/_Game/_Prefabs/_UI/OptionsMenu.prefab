@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 5760419148314837257}
   - component: {fileID: 5554652823421201627}
   - component: {fileID: 7054785682116527439}
+  - component: {fileID: 2627737284715959368}
   m_Layer: 5
   m_Name: VolumeTXT
   m_TagString: Untagged
@@ -458,6 +459,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2627737284715959368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695836584955865938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331810f0a44b814fba2944e8781d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProComponent: {fileID: 7054785682116527439}
+  languageStrings:
+  - language: 1
+    text: Music Volume
+  - language: 2
+    text: "Volumen de M\xFAsica"
 --- !u!1 &1057405141814377777
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +925,7 @@ GameObject:
   - component: {fileID: 2433407900797460283}
   - component: {fileID: 376836441680182361}
   - component: {fileID: 5482330853480589539}
+  - component: {fileID: 4912884087770311715}
   m_Layer: 5
   m_Name: SensitivityTXT
   m_TagString: Untagged
@@ -1031,6 +1051,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4912884087770311715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822440460781210056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331810f0a44b814fba2944e8781d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProComponent: {fileID: 5482330853480589539}
+  languageStrings:
+  - language: 0
+    text: Controller Sensitivity
+  - language: 0
+    text: Sensibilidad del Mando
 --- !u!1 &4158548837577369640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1116,7 @@ GameObject:
   - component: {fileID: 1977245196565663675}
   - component: {fileID: 1896644907963452393}
   - component: {fileID: 3127877238852171783}
+  - component: {fileID: 1643469922373711231}
   m_Layer: 5
   m_Name: VolumeTXT
   m_TagString: Untagged
@@ -1203,6 +1242,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1643469922373711231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282018216994602930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331810f0a44b814fba2944e8781d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProComponent: {fileID: 3127877238852171783}
+  languageStrings:
+  - language: 1
+    text: SFX Volume
+  - language: 2
+    text: Volumen de Efectos
 --- !u!1 &4283932444880080677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2299,6 +2356,7 @@ GameObject:
   - component: {fileID: 8560319223289498132}
   - component: {fileID: 8882289366103446300}
   - component: {fileID: 3345316014881784323}
+  - component: {fileID: 3474262314894840638}
   m_Layer: 5
   m_Name: Volume|HEADER
   m_TagString: Untagged
@@ -2426,6 +2484,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3474262314894840638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694022184525130203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331810f0a44b814fba2944e8781d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProComponent: {fileID: 3345316014881784323}
+  languageStrings:
+  - language: 1
+    text: Volume
+  - language: 2
+    text: Volumen
 --- !u!1 &8141488088556060087
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,6 +2588,7 @@ GameObject:
   - component: {fileID: 7918285940004187815}
   - component: {fileID: 5416439956449454592}
   - component: {fileID: 3011709096656466111}
+  - component: {fileID: 5024593429911346643}
   m_Layer: 5
   m_Name: Sensitivity|HEADER
   m_TagString: Untagged
@@ -2639,6 +2716,24 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5024593429911346643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8198302616500874545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331810f0a44b814fba2944e8781d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProComponent: {fileID: 3011709096656466111}
+  languageStrings:
+  - language: 1
+    text: Sensitivity
+  - language: 2
+    text: Sensibildad
 --- !u!1 &8248563584365730763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,6 +2999,7 @@ GameObject:
   - component: {fileID: 4992566755502075601}
   - component: {fileID: 8679255513330779107}
   - component: {fileID: 1613309615693320759}
+  - component: {fileID: 9040443711157406019}
   m_Layer: 5
   m_Name: SensitivityTXT
   m_TagString: Untagged
@@ -3029,3 +3125,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9040443711157406019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724953041870952976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6331810f0a44b814fba2944e8781d09a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProComponent: {fileID: 1613309615693320759}
+  languageStrings:
+  - language: 1
+    text: Mouse Sensitivity
+  - language: 2
+    text: "Sensibilidad del Rat\xF3n"
