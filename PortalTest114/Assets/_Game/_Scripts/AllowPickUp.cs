@@ -62,6 +62,26 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
             rb.AddForce(transform.forward * 10f, ForceMode.Impulse); // Adjust the force as needed
         }
     }
+
+    private bool CheckIfValidDrap()
+    {
+        Vector3 mainCameraLocation = Camera.main.transform.position; // Get the main camera's position
+        Vector3 directionToCamera = (mainCameraLocation - transform.position).normalized; // Calculate the direction towards the camera
+
+        int layerMask = ~(1 << LayerMask.NameToLayer("Selectable")); // Create a layer mask excluding the Selectable layer
+
+        RaycastHit _hit;
+        if (Physics.Raycast(transform.position, directionToCamera, out _hit, 100f, layerMask))
+        {
+            if (_hit.transform.CompareTag("Player"))
+                return false;
+
+            transform.position = mainCameraLocation; 
+            return true; // If the raycast hits an object that is not the player, return true
+        }
+
+        return false; // If the raycast does not hit anything, return false
+    }
     #endregion
 
     #region Interfaces
@@ -70,6 +90,7 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
     /// </summary>
     public void PickUp(Transform holdPoint)
     {
+        // -----DROPPING----- //
         // Check if the interactor is null or if the parent is not set
         if (holdPoint == null)
         {
@@ -79,10 +100,13 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
             transform.SetParent(null);
             SetTeleportableState(true);
 
+            CheckIfValidDrap(); // Check if the drop is valid
+
             ApplyFowardForce(); // Apply a forward force when the object is released
             return;
         }
 
+        // -----PICKING UP----- //
         pickUpSound?.PlayOneShot(pickUpSound.clip); // Play the pick-up sound if available
 
         rb.isKinematic = true; // Disable physics when picked up
