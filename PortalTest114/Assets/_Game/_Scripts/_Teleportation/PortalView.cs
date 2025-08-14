@@ -5,7 +5,6 @@ public class PortalView : MonoBehaviour
     #region Public Variables
     public Camera portalCamera; // The camera that renders the portal view
     public Renderer targetPortalView; // The portal view that this camera will render to
-    public Renderer thisPortalRenderer; // The renderer of this portal
     public Color portalColor = new Color(1f, 1f, 1f, 0.8f); // Default: white with 80% opacity
     #endregion
 
@@ -43,10 +42,8 @@ public class PortalView : MonoBehaviour
 
     private void Update()
     {
-        if (!thisPortalRenderer)
-            return;
-
-        portalCamera.enabled = thisPortalRenderer.isVisible;
+        portalCamera.enabled = targetPortalView.isVisible;
+        
     }
     #endregion
 }

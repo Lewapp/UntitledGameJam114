@@ -33,11 +33,12 @@ public class TeleportSubject : MonoBehaviour, ITeleportable
         if (rb)
         {
             // Get relative rotation between entry and exit portal
-            Quaternion relativeRotation = exitRotation * Quaternion.Inverse(entryRotation);
+            Quaternion _relativeRotation = exitRotation * Quaternion.Inverse(entryRotation);
 
             // Rotate velocity by this relative rotation
-            Vector3 newVelocity = relativeRotation * rb.linearVelocity;
-            rb.linearVelocity = newVelocity;
+            Vector3 _newVelocity = _relativeRotation * rb.linearVelocity;
+            _newVelocity.y =  (Mathf.Abs(exitRotation.eulerAngles.x) <= 45f) ? -_newVelocity.y : _newVelocity.y; 
+            rb.linearVelocity = -_newVelocity;
         }
 
         transform.rotation = exitRotation;

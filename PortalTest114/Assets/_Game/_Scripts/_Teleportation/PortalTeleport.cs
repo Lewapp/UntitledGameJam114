@@ -18,7 +18,6 @@ public class PortalTeleport : MonoBehaviour
     [Header("Portal Settings")]
     public PortalTeleport linkedPortal; // The portal this one is linked to
     public Vector3 teleportLocation; // The position offset for teleportation
-    public Quaternion teleportRotation = Quaternion.identity; // The rotation offset for teleportation
     #endregion
 
     #region Inspector Variables
@@ -51,7 +50,7 @@ public class PortalTeleport : MonoBehaviour
             return;
 
         // Teleport to the linked portal's position plus its teleportLocation offset
-        other.GetComponent<ITeleportable>()?.Teleport(linkedPortal.transform.position + linkedPortal.teleportLocation, teleportRotation, linkedPortal.teleportRotation, forceSolo);
+        other.GetComponent<ITeleportable>()?.Teleport(linkedPortal.transform.position + linkedPortal.teleportLocation, transform.rotation, linkedPortal.transform.rotation, forceSolo);
         linkedPortal.SetExpectingObject(other.gameObject); // Set the linked portal to expect this object next
 
         PlayPortalSound(); // Play the portal sound on this portal
@@ -81,22 +80,9 @@ public class PortalTeleport : MonoBehaviour
     }
     #endregion
 
-    #region Editor Code
-
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        // Draw a yellow wiresphere at the local teleport location
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + teleportLocation, 0.2f);
-
-        // Draw a yellow arrow indicating the teleport direction
-        Handles.color = Color.yellow; 
-        Handles.ArrowHandleCap(0, transform.position + teleportLocation, teleportRotation, 0.5f, EventType.Repaint);
-    }
-#endif
 }
 
+#region Editor Code
 #if UNITY_EDITOR
 /// <summary>
 /// Custom editor for PortalTeleport to allow manipulation of teleport location in the Scene view.
@@ -110,23 +96,6 @@ public class TeleportHandle : Editor
 
         EditorGUI.BeginChangeCheck(); // Start checking for changes to the handle's position
 
-        Vector3 currentPos = portal.transform.position + portal.teleportLocation;
-        Quaternion currentRot = portal.teleportRotation;
-
-        // Position Handle for teleport location
-        Vector3 newPos = Handles.PositionHandle(currentPos, Quaternion.identity);
-        // Rotation Handle for teleport rotation
-        Quaternion newRot = Handles.RotationHandle(currentRot, currentPos);
-
-        // If the position changed, update teleportLocation accordingly
-        if (EditorGUI.EndChangeCheck())
-        {
-            Undo.RecordObject(portal, "Change Teleport Location"); // Record undo state for editor
-            portal.teleportLocation = newPos - portal.transform.position; // Update teleportLocation offset relative to portal
-            portal.teleportRotation = newRot; // Update teleport rotation
-            EditorUtility.SetDirty(portal); // Mark the portal as dirty to ensure changes are saved
-        }
-
         if (portal.linkedPortal)
         {
             // Set colour for connected objects to green
@@ -134,6 +103,8 @@ public class TeleportHandle : Editor
             // Draw a line from the pressure plate to each connected object
             Handles.DrawDottedLine(portal.transform.position, portal.linkedPortal.transform.position, 5f);
         }
+
+        SceneView.RepaintAll();
     }
 }
 #endif

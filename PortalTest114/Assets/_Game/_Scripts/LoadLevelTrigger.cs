@@ -35,6 +35,9 @@ public class LoadLevelTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Player"))
+            return; // Exit if the collider is not tagged as "Player"
+
         if (string.IsNullOrEmpty(levelName))
         {
             Debug.LogWarning("Level name is not set in LoadLevelTrigger.");

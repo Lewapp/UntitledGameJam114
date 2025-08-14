@@ -167,7 +167,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
 
         characterController.enabled = false;
         transform.position = position; // Set the player's position to the teleport location
-        transform.rotation = Quaternion.Euler(0f, exitRotation.eulerAngles.y, 0f); // Set the player's rotation to the teleport rotation
+        transform.rotation = Quaternion.Euler(0f, -exitRotation.eulerAngles.y, 0f); // Set the player's rotation to the teleport rotation
         characterController.enabled = true;
     }
     #endregion
