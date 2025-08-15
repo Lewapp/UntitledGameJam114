@@ -11,4 +11,5 @@ public struct InteractableData
     public GameObject interactor;
     public Transform parent;
     public bool isPressed; // Optional field to indicate if the interaction is a press action
+    public int idPress; // Optional field to identify the interaction press
 }

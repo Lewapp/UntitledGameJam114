@@ -22,6 +22,9 @@ public class PressurePlate : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource audioSource; // Audio source for playing sounds
     [SerializeField] private Vector2 offOnPitch; // Pitch range for the sound when the pressure plate is pressed or released
+
+    [Header("Extra Settings")]
+    [SerializeField] private int id; // Unique identifier for the pressure plate
     #endregion
 
     #region Private Variables
@@ -86,7 +89,8 @@ public class PressurePlate : MonoBehaviour
                 {
                     interactor = gameObject,
                     parent = transform,
-                    isPressed = isPressed // Pass the pressed
+                    isPressed = isPressed, // Pass the pressed
+                    idPress = id // Pass the ID of the pressure plate
                 });
             }
         }

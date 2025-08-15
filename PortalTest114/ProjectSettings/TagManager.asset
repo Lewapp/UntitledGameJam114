@@ -15,8 +15,8 @@ TagManager:
   - Selectable
   - Player
   - Environment
-  - 
-  - 
+  - PhysicsPlatform
+  - Button
   - 
   - 
   - 
