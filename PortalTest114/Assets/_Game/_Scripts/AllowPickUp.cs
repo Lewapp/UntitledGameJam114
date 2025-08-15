@@ -47,6 +47,9 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
         teleportable.canTeleport = enable; // Set the teleportable state
     }
 
+    /// <summary>
+    /// Applies a forward force to the object when it is thrown.
+    /// </summary>
     private void ApplyFowardForce()
     {
         if (dropMode != PickUpMode.Throw)
@@ -55,7 +58,6 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
             return; // If the drop mode is not Throw, do not apply force
         }
 
-
         // Apply a forward force to the object if it has a Rigidbody component
         if (rb != null)
         {
@@ -63,6 +65,9 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
         }
     }
 
+    /// <summary>
+    /// Checks to see if the object can be dropped at its current position.
+    /// </summary>
     private bool CheckIfValidDrap()
     {
         Vector3 mainCameraLocation = Camera.main.transform.position; // Get the main camera's position
@@ -73,7 +78,7 @@ public class AllowPickUp : MonoBehaviour, IPickUpable
         RaycastHit _hit;
         if (Physics.Raycast(transform.position, directionToCamera, out _hit, 100f, layerMask))
         {
-            if (_hit.transform.CompareTag("Player"))
+            if (_hit.transform.CompareTag("Player") || _hit.transform.CompareTag("Portal"))
                 return false;
 
             transform.position = mainCameraLocation; 

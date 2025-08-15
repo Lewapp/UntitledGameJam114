@@ -19,6 +19,11 @@ public class LoadLevelTrigger : MonoBehaviour
     #endregion
 
     #region Unity Events
+    private void Start()
+    {
+        StaticSFX.instance?.PlayLevelStartSound(); // Play the level start sound 
+    }
+
     private void Update()
     {
         if (!loadNextScene)
@@ -51,12 +56,16 @@ public class LoadLevelTrigger : MonoBehaviour
 
         // If there is a player instance, stop its movement
         if (PlayerMovement.instance)
-            PlayerMovement.instance.moveSpeed = 0f; 
+            PlayerMovement.instance.moveSpeed = 0f;
 
         // If respawning play respawn sound
         if (SceneManager.GetActiveScene().name == levelName)
         {
             StaticSFX.instance?.PlayRespawnSound(); // Play respawn sound if the level is the same as the current scene
+        }
+        else
+        {
+            StaticSFX.instance?.PlayNextLevelSound(); // Play next level sound if the level is different
         }
 
         // Check if the other collider's layer matches the playerLayer mask

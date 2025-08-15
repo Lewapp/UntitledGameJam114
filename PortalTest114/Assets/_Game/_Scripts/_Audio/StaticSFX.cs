@@ -16,6 +16,8 @@ public class StaticSFX : MonoBehaviour
     [Header("Sound Settings")]
     [SerializeField] private AudioSource audioSource; // AudioSource to play static sound effects
     [SerializeField] private AudioClipPlus respawnSound; // Sound to play when the player respawns
+    [SerializeField] private AudioClipPlus nextLevelSound; // Sound to play when next level is loading
+    [SerializeField] private AudioClipPlus levelLoadSound; // Sound to play when next level is loaded
     #endregion
 
     #region Private Variables
@@ -68,6 +70,22 @@ public class StaticSFX : MonoBehaviour
             return;
 
         StartCoroutine(PlayDelayed(respawnSound));
+    }
+
+    public void PlayNextLevelSound()
+    {
+        if (!audioSource)
+            return;
+
+        StartCoroutine(PlayDelayed(nextLevelSound));
+    }
+
+    public void PlayLevelStartSound()
+    {
+        if (!audioSource)
+            return;
+
+        StartCoroutine(PlayDelayed(levelLoadSound));
     }
 
     /// <summary>

@@ -16,7 +16,6 @@ public class PlayerInteract : MonoBehaviour
 
     #region Private Variables
     private Camera playerCamera; // Reference to the player's camera
-    private LayerMask layerMask; // Layer mask to filter out objects that can't be interacted with
     private Selected selectedObject; // Reference to the currently selected object
     private GameObject heldObject; // Reference to the object currently being held (if any)
     #endregion
@@ -25,7 +24,6 @@ public class PlayerInteract : MonoBehaviour
     private void Start()
     {
         playerCamera = Camera.main; // Get the main camera in the scene
-        layerMask = LayerMask.GetMask("Selectable"); // Set the layer mask to Character layer
     }
 
     private void FixedUpdate()
@@ -61,7 +59,7 @@ public class PlayerInteract : MonoBehaviour
 
         // Perform a raycast forward from the player's position within the set interaction distance
         // Only detect objects on the specified layerMask
-        if (Physics.Raycast(transform.position, _direction, out RaycastHit _hit, interactionDistance, layerMask))
+        if (Physics.Raycast(transform.position, _direction, out RaycastHit _hit, interactionDistance))
         {
             // Try to get the 'Selected' component from the object we hit
             selectedObject = _hit.transform.GetComponent<Selected>();

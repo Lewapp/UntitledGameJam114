@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4974270932275594765}
   m_Layer: 0
   m_Name: Portal_Universal
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,7 +194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkedPortal: {fileID: 0}
   teleportLocation: {x: 0, y: 1.3939908, z: 0}
-  teleportRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   allowedEntryMask:
     serializedVersion: 2
     m_Bits: 192
@@ -215,7 +214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalCamera: {fileID: 4431416133180006989}
   targetPortalView: {fileID: 0}
-  thisPortalRenderer: {fileID: 670720015785173661}
   portalColor: {r: 0.7110495, g: 0.4669811, b: 1, a: 0.23921569}
 --- !u!82 &4974270932275594765
 AudioSource:

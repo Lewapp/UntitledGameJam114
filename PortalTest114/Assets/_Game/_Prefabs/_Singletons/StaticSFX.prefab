@@ -49,6 +49,12 @@ MonoBehaviour:
   respawnSound:
     clip: {fileID: 8300000, guid: 6293656074856cd429f248dfbb949c01, type: 3}
     delay: 1
+  nextLevelSound:
+    clip: {fileID: 8300000, guid: 9b7642783be57624ca6393ecbbf85976, type: 3}
+    delay: 0
+  levelLoadSound:
+    clip: {fileID: 8300000, guid: 35cd70b24886ec84c8704dac9f4a3b3a, type: 3}
+    delay: 0
 --- !u!82 &7890166275816282377
 AudioSource:
   m_ObjectHideFlags: 0
