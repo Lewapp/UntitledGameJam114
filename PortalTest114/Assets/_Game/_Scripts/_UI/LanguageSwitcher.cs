@@ -36,6 +36,11 @@ public class LanguageSwitcher : MonoBehaviour
             return;
         }
 
+        if (transform.parent)
+        {
+            transform.SetParent(null); // Detach from parent if it exists
+        }
+
         // Set the instance to this and prevent it from being destroyed on scene load
         instance = this;
         DontDestroyOnLoad(gameObject);

@@ -301,7 +301,7 @@ MonoBehaviour:
   moveSpeed: 5
   gravity: 9.81
   jumpHeight: 1
-  maxVelocity: 35
+  maxVelocity: 50
   mouseSensitivity: 0.05
   controllerSensitivity: 200
   sensitivityMultiplier: 1

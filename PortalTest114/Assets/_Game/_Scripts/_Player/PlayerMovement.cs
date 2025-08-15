@@ -41,8 +41,8 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
     private Camera playerCamera;       // Reference to the player's camera
     #endregion
 
-    #region Unity Events
-    private void Start()
+    #region Unity Event
+    private void Awake()
     {
         if (instance && instance != this)
         {
@@ -50,6 +50,16 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
             return;
         }
         instance = this; // Set the singleton instance
+
+        if (transform.parent)
+        {
+            transform.SetParent(null); // Detach from parent if it exists
+        }
+    }
+
+    private void Start()
+    {
+
 
         canTeleport = true; // Allow teleportation by default
 

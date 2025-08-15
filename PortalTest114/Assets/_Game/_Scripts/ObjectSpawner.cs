@@ -14,8 +14,12 @@ public class ObjectSpawner : MonoBehaviour, IInteractable
     #region Public Variables
     [Header("Spawner Settings")]
     public Vector3 spawnPoint; // The position where the object will be spawned
-    public GameObject spawnObject; // The object to spawn when interacted with
-    public int maxSpawns; // Maximum number of objects that can be spawned at once (not currently used)
+    #endregion
+
+    #region Inspector Variables
+    [SerializeField] private GameObject spawnObject; // The object to spawn when interacted with
+    [SerializeField] private int maxSpawns; // Maximum number of objects that can be spawned at once (not currently used)
+    [SerializeField] private bool lockRotation = false; // If true, the spawned object will have its rotation locked to the spawner's rotation
     #endregion
 
     #region Private Variables
@@ -52,6 +56,14 @@ public class ObjectSpawner : MonoBehaviour, IInteractable
 
         DeSpawnSpawned(); // De-spawn any previously spawned object
         spawned.Add(Instantiate(spawnObject, transform.TransformPoint(spawnPoint), Quaternion.identity)); // Spawn the new object at the specified spawn point
+
+        if (!lockRotation)
+            return;
+
+        // If lockRotation is true, lock the rotation of the spawned object
+        Rigidbody _rb = spawned[spawned.Count - 1].GetComponent<Rigidbody>();
+        if (_rb)
+            _rb.constraints = RigidbodyConstraints.FreezeRotation; // Lock the rotation of the spawned object if lockRotation is true
     }
     #endregion
 }

@@ -23,7 +23,7 @@ public class Door : MonoBehaviour, IInteractable
 
     #region Private Variables
     private bool isOpen = false; // Indicates whether the door is currently open or closed
-    private List<GameObject> interactors; // List of GameObjects that are currently interacting with the door
+    public List<GameObject> interactors; // List of GameObjects that are currently interacting with the door
     #endregion
 
     #region Unity Events

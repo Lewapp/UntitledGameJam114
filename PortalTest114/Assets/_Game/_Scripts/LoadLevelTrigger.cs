@@ -10,6 +10,7 @@ public class LoadLevelTrigger : MonoBehaviour
     [SerializeField] private string levelName; // The name of the level to load when the trigger is activated
     [SerializeField] private LayerMask playerLayer; // The layer that the player must be on to trigger the level load
     [SerializeField] private UIFade fader; // Optional fade effect to apply before loading the level
+    [SerializeField] private bool destroyNonPlayers; // If true, destroy non-player objects that enter the trigger collider
     #endregion
 
     #region Private Variables
@@ -36,7 +37,11 @@ public class LoadLevelTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
+        {
+            if (destroyNonPlayers)
+                Destroy(other.gameObject); // Destroy the object if it is not tagged as "Player" and destroyNonPlayers is true
             return; // Exit if the collider is not tagged as "Player"
+        }
 
         if (string.IsNullOrEmpty(levelName))
         {

@@ -16,6 +16,11 @@ public class Ambiance : MonoBehaviour
             return;
         }
 
+        if (transform.parent)
+        {
+            transform.SetParent(null); // Detach from parent if it exists
+        }
+
         instance = this;
         // Ensure the GameObject is not destroyed on scene load
         DontDestroyOnLoad(gameObject);

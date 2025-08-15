@@ -42,7 +42,8 @@ public class PortalView : MonoBehaviour
 
     private void Update()
     {
-        portalCamera.enabled = targetPortalView.isVisible;
+        if (targetPortalView)
+            portalCamera.enabled = targetPortalView.isVisible;
         
     }
     #endregion
