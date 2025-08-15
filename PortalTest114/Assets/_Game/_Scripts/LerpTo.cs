@@ -10,20 +10,15 @@ public class LerpTo : MonoBehaviour, IInteractable
     [SerializeField] private float returnSpeed = 1f; // Speed of the return lerp
     [SerializeField] private Vector2 lerpAndReturnDelay; // Delay before starting the lerp and return lerp
     [SerializeField] private bool lockInPress = false; // If true, the lerp delay will no stop coroutines
-    [SerializeField] private bool canSelfLock = false; // If true, the lerp can be locked to prevent interruption by new interactions
 
-    private bool isDown;
     private bool willSelfReset = false;
-    private bool isLocked = false; // If true, the lerp will not be interrupted by new interactions
+    private int activePressCount = 0; // Counter for active presses
     private Vector3 initialPosition; // The initial position of the object
     private Coroutine lerpCoroutine; // Coroutine for lerping the position
 
     private void Start()
     {
         initialPosition = transform.position; // Store the initial position of the object
-        isDown = false; // Initialise the isDown state
-
-
     }
 
     public void Interact(InteractableData data)
@@ -42,30 +37,22 @@ public class LerpTo : MonoBehaviour, IInteractable
         if (lockInPress)
             willSelfReset = true; // If lockInPress is true, set willSelfReset to true to allow self-resetting
 
-        lerpCoroutine = isDown && !isLocked ? 
-            StartCoroutine(LerpThisTo(initialPosition, returnSpeed, lerpAndReturnDelay.y * _delay)) : // If already down, lerp back to initial position
-            StartCoroutine(LerpThisTo(targetPosition + initialPosition, lerpSpeed, lerpAndReturnDelay.x * _delay)); // If not down, lerp to target position
+        if (data.isPressed)
+        {
+            activePressCount++;
+            lerpCoroutine = StartCoroutine(LerpThisTo(targetPosition + initialPosition, lerpSpeed, lerpAndReturnDelay.x * _delay)); // If not down, lerp to target position
+        }
+        else
+        {
+            activePressCount--;
+        }
 
-        isDown = !isDown; // Toggle the isDown state
+        if (activePressCount <= 0)
+        {
+            activePressCount = 0;
+            lerpCoroutine = StartCoroutine(LerpThisTo(initialPosition, returnSpeed, lerpAndReturnDelay.y * _delay)); // If already down, lerp back to initial position
+        }
 
-        if (canSelfLock)
-            isLocked = true;
-    }
-
-    public void DeInteract(InteractableData data)
-    {
-        if (!canSelfLock)
-            return; // If canSelfLock is false, do not allow de-interaction
-
-        Debug.Log("De-Interacting with LerpTo"); // Log de-interaction for debugging
-
-        isLocked = false; // Reset the isLocked state when de-interacting
-
-        lerpCoroutine = isDown ?
-           StartCoroutine(LerpThisTo(initialPosition, returnSpeed, lerpAndReturnDelay.y)) : // If already down, lerp back to initial position
-           StartCoroutine(LerpThisTo(targetPosition + initialPosition, lerpSpeed, lerpAndReturnDelay.x)); // If not down, lerp to target position
-
-        isDown = !isDown; // Toggle the isDown state
     }
 
     private IEnumerator LerpThisTo(Vector3 newPosition, float speed, float delay)
@@ -87,7 +74,6 @@ public class LerpTo : MonoBehaviour, IInteractable
         if (willSelfReset)
         {
             willSelfReset = false; // Reset the willSelfReset flag
-            isDown = false; // Reset the isDown state
             lerpCoroutine = StartCoroutine(LerpThisTo(initialPosition, returnSpeed, lerpAndReturnDelay.y)); // Lerp back to the initial position
         }
 

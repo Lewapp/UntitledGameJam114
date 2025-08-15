@@ -26,15 +26,12 @@ public class PressurePlate : MonoBehaviour
 
     #region Private Variables
     private bool isPressed = false; // Indicates whether the pressure plate is currently pressed
-    private bool isReleased = true; // Indicates whether the pressure plate is currently released
     private List<Collider> hitColliders = new List<Collider>(); // The object that is currently pressing the pressure plate
     #endregion
 
     #region Unity Events
     private void Start()
     {
-        isReleased = true; // Initialise released state to true
-
         if (audioSource && StaticSFX.instance)
             StaticSFX.instance.InitialiseNewSource(audioSource); // Initialise the sfx audio if available
     }
@@ -69,14 +66,6 @@ public class PressurePlate : MonoBehaviour
 
             audioSource.pitch = (isPressed) ? offOnPitch.y : offOnPitch.x; // Set audio pitch based on pressed state
             audioSource.PlayOneShot(audioSource.clip); // Play the sound effect
-
-            isReleased = false; // Reset released state when pressed
-        }
-
-        if (!isPressed && !isReleased)
-        {
-            isReleased = true; // Reset released state when not pressed
-            DeInteractWithObjects(); // Call method to handle de-interaction when not pressed
         }
     }
     #endregion
@@ -96,23 +85,8 @@ public class PressurePlate : MonoBehaviour
                 interactable.Interact(new InteractableData
                 {
                     interactor = gameObject,
-                    parent = transform
-                });
-            }
-        }
-    }
-
-    private void DeInteractWithObjects()
-    {
-        // Iterate through all connected objects and call their DeInteract method if they implement IInteractable
-        foreach (GameObject obj in connectedObjects)
-        {
-            if (obj.TryGetComponent<IInteractable>(out IInteractable interactable))
-            {
-                interactable.DeInteract(new InteractableData
-                {
-                    interactor = gameObject,
-                    parent = transform
+                    parent = transform,
+                    isPressed = isPressed // Pass the pressed
                 });
             }
         }
