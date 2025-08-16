@@ -12,6 +12,7 @@ public class PauseMenuButtons : MonoBehaviour
     #region Inspector Variables
     [Header("Pause Menu Settings")]
     [SerializeField] private GameObject[] pauseObjects; // Array of GameObjects representing the pause menu options
+    [SerializeField] private GameObject[] hideObjects; // Array of GameObjects to hide when the pause menu is active
     [SerializeField] private GameObject pauseFirstSelect; // Reference to the first selectable object in the pause menu
     [SerializeField] private GameObject optionsFirstSelect; // Reference to the first selectable object in the options menu
     [SerializeField] private TextMeshProUGUI displayedLanguageSelection; // Text element to display the current language selection
@@ -47,6 +48,14 @@ public class PauseMenuButtons : MonoBehaviour
                 continue;
 
             pauseObject.SetActive(true); // Activate all pause menu objects
+        }
+
+        foreach (GameObject hideObject in hideObjects)
+        {
+            if (!hideObject)
+                continue;
+
+            hideObject.SetActive(false); // Hide all specified objects when the game is paused
         }
 
         Time.timeScale = 0f; // Pause the game by setting time scale to zero

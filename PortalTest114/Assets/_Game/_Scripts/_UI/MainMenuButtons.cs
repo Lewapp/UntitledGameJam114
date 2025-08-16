@@ -112,6 +112,9 @@ public class MainMenuButtons : MonoBehaviour
             case 3:
                 levelToLoad = "Scene_Level_4";
                 break;
+            case 4:
+                levelToLoad = "Scene_Level_5";
+                break;
             default:
                 currentLevelIndex = 0; // Reset to the first level if out of bounds
                 levelToLoad = "Scene_Level_1";

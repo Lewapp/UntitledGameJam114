@@ -2430,6 +2430,10 @@ MonoBehaviour:
   - {fileID: 1185605454826244308}
   - {fileID: 7322820584646785474}
   - {fileID: 8433835638533607194}
+  hideObjects:
+  - {fileID: 4451423731002327527}
+  - {fileID: 2793976620439536909}
+  - {fileID: 2976209947659723529}
   pauseFirstSelect: {fileID: 6055390258630508383}
   optionsFirstSelect: {fileID: 614318636582696473}
   displayedLanguageSelection: {fileID: 988409742452584876}
@@ -3116,6 +3120,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afad4679576a0b4fa38b8a2ec0b8975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2793976620439536909 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7694022184525130203, guid: d30a99285873fba4caa16e4aa32a64a9, type: 3}
+  m_PrefabInstance: {fileID: 5476547053214756054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4451423731002327527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8198302616500874545, guid: d30a99285873fba4caa16e4aa32a64a9, type: 3}
+  m_PrefabInstance: {fileID: 5476547053214756054}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5692265696910328948
 PrefabInstance:
   m_ObjectHideFlags: 0
