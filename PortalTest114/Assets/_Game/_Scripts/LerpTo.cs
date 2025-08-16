@@ -2,28 +2,44 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// A simple lerp functionality that allows an object to smoothly move to a target position
+/// Additional options for self resetting
+/// </summary>
 public class LerpTo : MonoBehaviour, IInteractable
 {
+    #region Public Variables
     public Vector3 targetPosition; // The position to lerp towards
+    #endregion
 
+    #region Inspector Variables
     [SerializeField] private float lerpSpeed = 1f; // Speed of the lerp
     [SerializeField] private float returnSpeed = 1f; // Speed of the return lerp
     [SerializeField] private Vector2 lerpAndReturnDelay; // Delay before starting the lerp and return lerp
     [SerializeField] private bool lockInPress = false; // If true, the lerp delay will no stop coroutines
+    #endregion
 
+    #region Private Variables
     private bool willSelfReset = false;
     private int activePressCount = 0; // Counter for active presses
     private Vector3 initialPosition; // The initial position of the object
     private Coroutine lerpCoroutine; // Coroutine for lerping the position
+    #endregion
 
+    #region Unity Events
     private void Start()
     {
         initialPosition = transform.position; // Store the initial position of the object
     }
+    #endregion
 
+    #region Interfaces
+    /// <summary>
+    /// Starts the lerping process based on the interaction data.
+    /// </summary>
     public void Interact(InteractableData data)
     {
-        float _delay = 1;
+        float _delay = 1; // A delay factor to control the lerping timing
         if (lerpCoroutine != null)
         {
             if (lockInPress)
@@ -37,6 +53,7 @@ public class LerpTo : MonoBehaviour, IInteractable
         if (lockInPress)
             willSelfReset = true; // If lockInPress is true, set willSelfReset to true to allow self-resetting
 
+        // If the interaction is a press action, start lerping to the target position
         if (data.isPressed)
         {
             activePressCount++;
@@ -47,14 +64,20 @@ public class LerpTo : MonoBehaviour, IInteractable
             activePressCount--;
         }
 
+        // If the active press count is less than or equal to zero, reset the position
         if (activePressCount <= 0)
         {
             activePressCount = 0;
             lerpCoroutine = StartCoroutine(LerpThisTo(initialPosition, returnSpeed, lerpAndReturnDelay.y * _delay)); // If already down, lerp back to initial position
         }
-
     }
+    #endregion
 
+    #region Coroutines
+    /// <summary>
+    /// Smoothly lerps the GameObject to a new position over time.
+    /// Will self reset to initial position if willSelfReset is true.
+    /// </summary>
     private IEnumerator LerpThisTo(Vector3 newPosition, float speed, float delay)
     {
         yield return new WaitForSeconds(delay); // Wait for the specified delay before starting the lerp
@@ -76,8 +99,8 @@ public class LerpTo : MonoBehaviour, IInteractable
             willSelfReset = false; // Reset the willSelfReset flag
             lerpCoroutine = StartCoroutine(LerpThisTo(initialPosition, returnSpeed, lerpAndReturnDelay.y)); // Lerp back to the initial position
         }
-
     }
+    #endregion
 }
 
 
