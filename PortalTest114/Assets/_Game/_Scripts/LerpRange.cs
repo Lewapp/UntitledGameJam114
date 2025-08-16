@@ -19,7 +19,7 @@ public class LerpRange : MonoBehaviour, IInteractable
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed; // The speed at which the GameObject moves
     [SerializeField] private LayerMask ignoreMask; // Layer mask to ignore certain layers during movement checks
-    [SerializeField] private Collider checkCollider;  // Collider used to check for interactions with other objects
+    [SerializeField] private float resetDuration; // If above 0, the GameObject will reset to the central position after this duration
     #endregion
 
     #region Private Variables
@@ -31,6 +31,8 @@ public class LerpRange : MonoBehaviour, IInteractable
     #region Unity Events
     private void Start()
     {
+        if (resetDuration > 0f)
+            centralPosition = transform.position;
         attachedObjects = new List<Transform>();
     }
 
@@ -95,6 +97,7 @@ public class LerpRange : MonoBehaviour, IInteractable
             if (currentMovement != null)
                 StopCoroutine(currentMovement);
 
+            currentMovement = StartCoroutine(ResetPosition());
             currentMovement = null;
             return;
         }
@@ -199,6 +202,21 @@ public class LerpRange : MonoBehaviour, IInteractable
             transform.position = _isWithinRange && _canMove ? _endPos : _startPos;
             yield return null; // Wait until the current movement is finished
         }
+    }
+
+    private IEnumerator ResetPosition()
+    {
+        float _elapsed = 0f;
+
+        while (_elapsed < resetDuration)
+        {
+            // Smoothly interpolate the position back to the central position
+            transform.position = Vector3.Lerp(transform.position, centralPosition, _elapsed / resetDuration);
+            _elapsed += Time.deltaTime;
+            yield return null; // Wait for the next frame
+        }
+
+        currentMovement = null; // Reset the current movement coroutine reference
     }
     #endregion
 

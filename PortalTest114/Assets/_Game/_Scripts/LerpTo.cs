@@ -15,6 +15,7 @@ public class LerpTo : MonoBehaviour, IInteractable
     #region Inspector Variables
     [SerializeField] private float lerpSpeed = 1f; // Speed of the lerp
     [SerializeField] private float returnSpeed = 1f; // Speed of the return lerp
+    [SerializeField] private int requiredPresses = 1; // Number of presses required to trigger the lerp
     [SerializeField] private Vector2 lerpAndReturnDelay; // Delay before starting the lerp and return lerp
     [SerializeField] private bool lockInPress = false; // If true, the lerp delay will no stop coroutines
     #endregion
@@ -54,21 +55,17 @@ public class LerpTo : MonoBehaviour, IInteractable
             willSelfReset = true; // If lockInPress is true, set willSelfReset to true to allow self-resetting
 
         // If the interaction is a press action, start lerping to the target position
-        if (data.isPressed)
-        {
-            activePressCount++;
-            lerpCoroutine = StartCoroutine(LerpThisTo(targetPosition + initialPosition, lerpSpeed, lerpAndReturnDelay.x * _delay)); // If not down, lerp to target position
-        }
-        else
-        {
-            activePressCount--;
-        }
+        activePressCount += data.isPressed ? 1 : -1;
 
         // If the active press count is less than or equal to zero, reset the position
         if (activePressCount <= 0)
         {
             activePressCount = 0;
             lerpCoroutine = StartCoroutine(LerpThisTo(initialPosition, returnSpeed, lerpAndReturnDelay.y * _delay)); // If already down, lerp back to initial position
+        }
+        else if (activePressCount >= requiredPresses)
+        {
+            lerpCoroutine = StartCoroutine(LerpThisTo(targetPosition + initialPosition, lerpSpeed, lerpAndReturnDelay.x * _delay)); // If not down, lerp to target position
         }
     }
     #endregion
