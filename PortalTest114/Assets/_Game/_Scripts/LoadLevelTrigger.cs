@@ -11,11 +11,13 @@ public class LoadLevelTrigger : MonoBehaviour
     [SerializeField] private LayerMask playerLayer; // The layer that the player must be on to trigger the level load
     [SerializeField] private UIFade fader; // Optional fade effect to apply before loading the level
     [SerializeField] private bool destroyNonPlayers; // If true, destroy non-player objects that enter the trigger collider
+    [SerializeField] private Transform respawnLocation; // Optional respawn location for the player after loading the level
     #endregion
 
     #region Private Variables
     private float currentDelayTime = 0f; // Timer for the next scene delay
     private bool loadNextScene = false; // Flag to indicate if the next scene should be loaded
+    private Transform playerTransform; // Reference to the player's transform for respawning
     #endregion
 
     #region Unity Events
@@ -32,6 +34,11 @@ public class LoadLevelTrigger : MonoBehaviour
         if (currentDelayTime <=  0)
         {
             loadNextScene = false; // Reset the flag to prevent multiple loads
+            if (respawnLocation && playerTransform)
+            {
+                Respawn(); // Respawn the player at the specified location if set
+                return;
+            }
             SceneManager.LoadScene(levelName); // Load the specified level when an object enters the trigger collider
             return;
         }
@@ -56,11 +63,12 @@ public class LoadLevelTrigger : MonoBehaviour
 
         // If there is a player instance, stop its movement
         if (PlayerMovement.instance)
-            PlayerMovement.instance.moveSpeed = 0f;
+            PlayerMovement.instance.moveSpeedMultiplier = 0f;
 
         // If respawning play respawn sound
         if (SceneManager.GetActiveScene().name == levelName)
         {
+            playerTransform = other.transform; // Get the player's transform for respawning
             StaticSFX.instance?.PlayRespawnSound(); // Play respawn sound if the level is the same as the current scene
         }
         else
@@ -79,6 +87,26 @@ public class LoadLevelTrigger : MonoBehaviour
 
         fader.StartFade(); // Start the fade effect if a UIFade component is assigned
         currentDelayTime = fader.fadeDuration + fader.fadeDelay; // Set the delay time based on the fade duration and delay
+    }
+    #endregion
+
+    #region Methods
+    /// <summary>
+    /// Resets the player's position to the respawn location and reverses the fade effect.
+    /// </summary>
+    private void Respawn()
+    {
+        CharacterController pc = playerTransform.GetComponent<CharacterController>();
+        
+        if (pc)
+            pc.enabled = false; // Disable the CharacterController to prevent physics issues during teleportation
+        playerTransform.position = respawnLocation.position; // Move the player to the respawn location if set
+        if (pc)
+            pc.enabled = true; // Disable the CharacterController to prevent physics issues during teleportation
+        fader?.ReverseFade(); // Reverse the fade effect if a UIFade component is assigned
+        // If there is a player instance, reset its movement speed multiplier
+        if (PlayerMovement.instance)
+            PlayerMovement.instance.moveSpeedMultiplier = 1f;
     }
     #endregion
 }

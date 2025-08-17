@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;       // Player movement speed
+    public float moveSpeedMultiplier = 1f; // Multiplier for movement speed adjustments
     public float gravity = 9.81f;      // Gravity strength
     public float jumpHeight = 2f;      // Height of player's jump
     public float maxVelocity = 10f; // Maximum velocity cap for movement
@@ -136,7 +137,7 @@ public class PlayerMovement : MonoBehaviour, ITeleportable
         Vector3 _move = transform.right * moveInput.x + transform.forward * moveInput.y;
 
         // Move the player using CharacterController
-        characterController.Move(_move * moveSpeed * Time.deltaTime);
+        characterController.Move(_move * moveSpeed * Time.deltaTime * moveSpeedMultiplier);
     }
 
     /// <summary>

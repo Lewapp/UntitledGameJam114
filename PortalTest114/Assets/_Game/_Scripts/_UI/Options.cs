@@ -28,12 +28,12 @@ public class Options : MonoBehaviour
     {
         // Initialise the sensitivity settings from PlayerPrefs
         if (mouseSensTXT)
-            mouseSensTXT.text = PlayerPrefs.GetFloat("MouseSens", 5f).ToString("F0"); // Load mouse sensitivity from PlayerPrefs
+            mouseSensTXT.text = PlayerPrefs.GetFloat("MouseSens", 0.05f).ToString("F0"); // Load mouse sensitivity from PlayerPrefs
         if (gamepadSensTXT)
             gamepadSensTXT.text = PlayerPrefs.GetFloat("GamepadSens", 250f).ToString("F0"); // Load gamepad sensitivity from PlayerPrefs
 
         if (mouseSensSlider)
-            mouseSensSlider.value = PlayerPrefs.GetFloat("MouseSens", 5f) * 100f; // Set mouse sensitivity slider value
+            mouseSensSlider.value = PlayerPrefs.GetFloat("MouseSens", 0.05f) * 100f; // Set mouse sensitivity slider value
         if (gamepadSensSlider)
             gamepadSensSlider.value = PlayerPrefs.GetFloat("GamepadSens", 250f); // Set gamepad sensitivity slider value
 
@@ -73,7 +73,7 @@ public class Options : MonoBehaviour
         PlayerPrefs.SetFloat("MouseSens", mouseSensSlider.value * 0.01f); // Save mouse sensitivity to PlayerPrefs
         if (mouseSensTXT)
         {
-            mouseSensTXT.text = (PlayerPrefs.GetFloat("MouseSens") * 100f).ToString("F0"); // Update the text to display the new sensitivity value
+            mouseSensTXT.text = (PlayerPrefs.GetFloat("MouseSens", 0.05f) * 100f).ToString("F0"); // Update the text to display the new sensitivity value
         }
     }
 
@@ -85,7 +85,7 @@ public class Options : MonoBehaviour
         PlayerPrefs.SetFloat("GamepadSens", Mathf.Round(gamepadSensSlider.value)); // Save gamepad sensitivity to PlayerPrefs
         if (gamepadSensTXT)
         {
-            gamepadSensTXT.text = PlayerPrefs.GetFloat("GamepadSens").ToString("F0"); // Update the text to display the new sensitivity value
+            gamepadSensTXT.text = PlayerPrefs.GetFloat("GamepadSens", 250f).ToString("F0"); // Update the text to display the new sensitivity value
         }
     }
 

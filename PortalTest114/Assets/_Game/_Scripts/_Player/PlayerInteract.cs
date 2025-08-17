@@ -106,8 +106,8 @@ public class PlayerInteract : MonoBehaviour
     #region Input Actions
     public void Interact(InputAction.CallbackContext context)
     {
-        // Check if the interaction input was performed and if there is a selected object
-        if (!context.performed || !selectedObject)
+        // Check if the interaction input was started and if there is a selected object
+        if (!context.started || !selectedObject)
             return;
 
         if (holdPoint == null)

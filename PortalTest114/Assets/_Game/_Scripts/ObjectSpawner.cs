@@ -20,6 +20,11 @@ public class ObjectSpawner : MonoBehaviour, IInteractable
     [SerializeField] private GameObject spawnObject; // The object to spawn when interacted with
     [SerializeField] private int maxSpawns; // Maximum number of objects that can be spawned at once (not currently used)
     [SerializeField] private bool lockRotation = false; // If true, the spawned object will have its rotation locked to the spawner's rotation
+
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip interactSound; // Sound to play when the object is spawned
+    [SerializeField] private AudioSource audioSource; // AudioSource to play the interact sound
+    [SerializeField] private Vector2 pitchRange = new Vector2(0.9f, 1.1f); // Range of pitch variation for the interact sound
     #endregion
 
     #region Private Variables
@@ -30,6 +35,11 @@ public class ObjectSpawner : MonoBehaviour, IInteractable
     private void Start()
     {
         spawned = new List<GameObject>(); // Initialize the list to hold spawned objects
+
+        if (audioSource && StaticSFX.instance)
+        {
+            StaticSFX.instance.InitialiseNewSource(audioSource); // Register this AudioSource with the StaticSFXManager
+        }
     }
     #endregion
 
@@ -53,6 +63,13 @@ public class ObjectSpawner : MonoBehaviour, IInteractable
     {
         if (!spawnObject || maxSpawns <= 0)
             return;
+
+        if (audioSource && interactSound)
+        {
+            audioSource.pitch = Random.Range(pitchRange.x, pitchRange.y); // Randomise the pitch within the specified range
+            audioSource.PlayOneShot(interactSound); // Play the interact sound if an AudioSource and sound are set
+        }
+
 
         DeSpawnSpawned(); // De-spawn any previously spawned object
         spawned.Add(Instantiate(spawnObject, transform.TransformPoint(spawnPoint), Quaternion.identity)); // Spawn the new object at the specified spawn point
